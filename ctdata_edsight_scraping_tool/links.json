@@ -1,0 +1,240 @@
+{
+	"Attendance": {
+		"dataset": "Chronic Absenteeism",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FChronicAbsenteeismReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=All%20Years&_subgroup=All+Students&_school=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school",
+			"Filter By": "_subgroup"
+		}
+	},
+	"Bullying": {
+		"dataset": "Bullying",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school"
+		}
+	},
+	"Incidents": {
+		"dataset": "Incidents",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FIncidentReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school"
+		}
+	},
+	"Sanctions": {
+		"dataset": "Sanctions",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FDisciplineReport&_select=Submit",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school"
+		}
+	},
+	"Suspension Rates": {
+		"dataset": "Suspension Rates",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=&_subgroup=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school",
+			"Subgroup": "_subgroup"
+		}
+	},
+	"Annual Expenditures": {
+		"dataset": "Annual Expenditures",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_rpttype=listing&_year=2014-15&_district=All+Districts&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFinanceReport",
+    "filters": {
+			"Year": "_year",
+			"District": "_district"
+		}
+	},
+	"Revenue Sources": {
+		"dataset": "Revenue Sources",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FRevenueSourceReport&_district=All%20Districts&_select=Submit&_year=2014-15&_schoolconstr=All",
+    "filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School Construction": "_schoolconstr"
+		}
+	},
+	"Per Pupil Expenditures": {
+		"dataset": "Per Pupil Expenditures",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPerPupilReport&_district=All%20Districts&_select=Submit&_year=2014-15",
+    "filters": {
+			"Year": "_year",
+			"District": "_district"
+    }
+	},
+	"Special Education Expenditures": {
+		"dataset": "Special Education Expenditures",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=&_subgroup=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district"
+    }
+	},
+	"Enrollment": {
+		"dataset": "Enrollment",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FEnrollmentReport&_default=Yes&_select=Submit",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school",
+			"Filter By": "_subgroup"
+		}
+	},
+	"Primary Disability": {
+		"dataset": "Primary Disability",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_year=Trend&_district=State%20of%20Connecticut&_parampass=Yes&_select=Submit",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"Disability": "_subgroup"
+		}
+	},
+	"Time with Nondisabled Peers": {
+		"dataset": "Time with Nondisabled Peers",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_year=Trend&_district=State%20of%20Connecticut&_select=Submit&_subgroup=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"Disability": "_subgroup"
+		}
+	},
+	"Educator Demographics": {
+		"dataset": "Educator Demographics",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FStaffingRaceReport&_default=Yes&_select=Submit",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school",
+			"Race/Ethnicity": "_subgroup"
+		}
+	},
+	"Educator Qualifications": {
+		"dataset": "Educator Qualifications",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes&_year=Trend&_school=",
+		"filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school"
+		}
+	},
+	"Staffing Levels": {
+		"dataset": "Staffing Levels",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFTEStaffingReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes&_year=Trend&_filterby=All&_subgroup=&_school=",
+    "filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Educator Type": "_filterby",
+      "Assignment Category": "_subgroup"
+      }
+	},
+	"CMT": {
+		"dataset": "CMT",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCMTCAPTScienceReport&_year=2014-15&_district=All%20Districts&_subgroup=All+Students&_grade=All+Grades+Combined&_school=+&_select=Submit&_parampass=Yes",
+    "filters": {
+			"Year": "_year",
+			"District": "_district",
+			"School": "_school",
+			"Race/Ethnicity": "_subgroup",
+      "Grade": "_grade"
+		}
+	},
+	"College Enterance and Persistence": {
+		"dataset": "College Enterance and Persistence",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCollegeEntranceandPersistenceReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2015-16&_school=",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Race/Ethnicity": "_subgroup"
+    }
+	},
+	"Four-Year Graduation Rates": {
+		"dataset": "Graduation Rates",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All+Students&_school=",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Race/Ethnicity": "_subgroup",
+      "Graduation Category": "_gradcat"
+    }
+	},
+  "Five-Year Graduation Rates": {
+		"dataset": "Five-Year Graduation Rates",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_rate=5&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All%20Students&_school=",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Race/Ethnicity": "_subgroup",
+      "Graduation Category": "_gradcat"
+    }
+	},
+  "Six-Year Graduation Rates": {
+		"dataset": "Six-Year Graduation Rates",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_rate=6&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All%20Students&_school=",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Race/Ethnicity": "_subgroup",
+      "Graduation Category": "_gradcat"
+    }
+	},
+	"Fitness": {
+		"dataset": "Fitness",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_grade=All+Grades+Combined&_year=2015-16&_district=All+Districts&_school=&_subgroup=+&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPhysicalFitnessTestReport&_select=Submit",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Race/Ethnicity": "_subgroup",
+      "Grade": "_grade"
+    }
+	},
+	"SAT": {
+		"dataset": "SAT",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCTSchoolDaySATReport&_year=2015-16&_district=All%20Districts&_subject=All+Subjects&_subgroup=All+Students&_select=Submit&_parampass=Yes&_school=",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Subject": "_subject",
+      "Filter By": "_subgroup"
+    }
+	},
+	"Smarter Balanced": {
+		"dataset": "Smarter Balanced",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSmarterBalancedAssessmentReport&_district=All%20Districts&_year=2015-16&_subgroup=All+Students&_grade=All+Grades+Combined&_school=+&_subject=ELA+and+Math&_select=Submit&_parampass=Yes",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Subject": "_subject",
+      "Filter By": "_subgroup",
+      "Grade": "_grade"
+    }
+	},
+  "Smarter Balanced Growth Model": {
+		"dataset": "Smarter Balanced Growth Model",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGrowthModelReport&_year=2015-16&_district=All%20Districts&_school=%20&_subject=ELA%20and%20Math&_subgroup=All%20Students&_grade=All+Grades+Combined&_select=Submit&_parampass=Yes",
+		"filters": {
+      "Year": "_year",
+      "District": "_district",
+      "School": "_school",
+      "Subject": "_subject",
+      "Filter By": "_subgroup",
+      "Grade": "_grade"
+    }
+	}
+}

@@ -1,7 +1,7 @@
 {
 	"Attendance": {
 		"dataset": "Chronic Absenteeism",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FChronicAbsenteeismReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=All%20Years&_subgroup=All+Students&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FChronicAbsenteeismReport&_select=Submit&_parampass=Yes",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -11,7 +11,7 @@
 	},
 	"Bullying": {
 		"dataset": "Bullying",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_select=Submit",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -20,7 +20,7 @@
 	},
 	"Incidents": {
 		"dataset": "Incidents",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FIncidentReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FIncidentReport&_select=Submit",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -29,7 +29,7 @@
 	},
 	"Sanctions": {
 		"dataset": "Sanctions",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FDisciplineReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FDisciplineReport&_select=Submit",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -38,7 +38,7 @@
 	},
 	"Suspension Rates": {
 		"dataset": "Suspension Rates",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=&_subgroup=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_select=Submit",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -48,7 +48,7 @@
 	},
 	"Annual Expenditures": {
 		"dataset": "Annual Expenditures",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_rpttype=listing&_year=2014-15&_district=All+Districts&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFinanceReport",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_rpttype=listing&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFinanceReport",
     "filters": {
 			"Year": "_year",
 			"District": "_district"
@@ -56,7 +56,7 @@
 	},
 	"Revenue Sources": {
 		"dataset": "Revenue Sources",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FRevenueSourceReport&_district=All%20Districts&_select=Submit&_year=2014-15&_schoolconstr=All",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FRevenueSourceReport",
     "filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -73,7 +73,7 @@
 	},
 	"Special Education Expenditures": {
 		"dataset": "Special Education Expenditures",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_district=All%20Districts&_select=Submit&_year=2015-16&_school=&_subgroup=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport",
 		"filters": {
 			"Year": "_year",
 			"District": "_district"
@@ -100,7 +100,7 @@
 	},
 	"Time with Nondisabled Peers": {
 		"dataset": "Time with Nondisabled Peers",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_year=Trend&_district=State%20of%20Connecticut&_select=Submit&_subgroup=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_select=Submit",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -119,7 +119,7 @@
 	},
 	"Educator Qualifications": {
 		"dataset": "Educator Qualifications",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes&_year=Trend&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes",
 		"filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -128,7 +128,7 @@
 	},
 	"Staffing Levels": {
 		"dataset": "Staffing Levels",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFTEStaffingReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes&_year=Trend&_filterby=All&_subgroup=&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFTEStaffingReport&_select=Submit&_parampass=Yes",
     "filters": {
       "Year": "_year",
       "District": "_district",
@@ -139,7 +139,7 @@
 	},
 	"CMT": {
 		"dataset": "CMT",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCMTCAPTScienceReport&_year=2014-15&_district=All%20Districts&_subgroup=All+Students&_grade=All+Grades+Combined&_school=+&_select=Submit&_parampass=Yes",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCMTCAPTScienceReport&_select=Submit&_parampass=Yes",
     "filters": {
 			"Year": "_year",
 			"District": "_district",
@@ -150,7 +150,7 @@
 	},
 	"College Enterance and Persistence": {
 		"dataset": "College Enterance and Persistence",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCollegeEntranceandPersistenceReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2015-16&_school=",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCollegeEntranceandPersistenceReport&_select=Submit&_parampass=Yes",
 		"filters": {
       "Year": "_year",
       "District": "_district",

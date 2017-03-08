@@ -13,6 +13,7 @@ requirements = [
     'Click>=6.0',
     'Requests>=2.13.0',
     'beautifulsoup4>=4.5.3',
+    'progressbar2'
     # TODO: put package requirements here
 ]
 

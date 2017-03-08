@@ -2,6 +2,7 @@
 	"Attendance": {
 		"dataset": "Chronic Absenteeism",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FChronicAbsenteeismReport&_select=Submit&_parampass=Yes",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/ChronicAbsenteeismExport&_year=2015-16&_district=+&_subgroup=All+Students&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -22,7 +23,8 @@
 	},
 	"Bullying": {
 		"dataset": "Bullying",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//BullyingExport&_year=2015-16&_district=All+Districts&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -39,7 +41,8 @@
 	},
 	"Incidents": {
 		"dataset": "Incidents",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FIncidentReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FIncidentReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//IncidentExport&_year=2015-16&_district=All+Districts&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -56,7 +59,8 @@
 	},
 	"Sanctions": {
 		"dataset": "Sanctions",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FDisciplineReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FDisciplineReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/DisciplineExport&_year=2015-16&_district=All+Districts&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -73,7 +77,8 @@
 	},
 	"Suspension Rates": {
 		"dataset": "Suspension Rates",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_subgroup=+&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/SuspensionRateExport&_year=2015-16&_district=All+Districts&_school=+&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -94,7 +99,8 @@
 	},
 	"Annual Expenditures": {
 		"dataset": "Annual Expenditures",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_rpttype=listing&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFinanceReport",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_rpttype=listing&_year=2014-15&_district=All+Districts&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFinanceReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/FinanceExport&_year=2014-15&_district=All+Districts",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -107,7 +113,8 @@
 	},
 	"Revenue Sources": {
 		"dataset": "Revenue Sources",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FRevenueSourceReport",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FRevenueSourceReport&_district=All%20Districts&_select=Submit&_year=2014-15&_schoolconstr=All",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/RevenueSourceExport&_year=2014-15&_district=All+Districts&_schoolconstr=All",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -125,6 +132,7 @@
 	"Per Pupil Expenditures": {
 		"dataset": "Per Pupil Expenditures",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPerPupilReport&_district=All%20Districts&_select=Submit&_year=2014-15",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PerPupilExport&_year=2014-15&_district=All+Districts",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -137,20 +145,22 @@
 	},
 	"Special Education Expenditures": {
 		"dataset": "Special Education Expenditures",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSuspensionRateReport",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSpecialEducationReport&_district=All%20Districts&_select=Submit&_year=2014-15",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/SpecialEducationExport&_year=2014-15&_district=All+Districts",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
-			"options": ["Trend", "2015-16", "2014-15", "2013-14", "2012-13", "2011-12", "2010-11", "2009-10"]
+			"options": ["Trend", "2014-15", "2013-14", "2012-13", "2011-12", "2010-11", "2009-10", "2008-09", "2007-08", "2006-07", "2005-06"]
 		}, {
 			"name": "District",
 			"xpath_id": "_district",
-			"options": ["State of Connecticut", "All Districts", "Achievement First Hartford Academy Inc. District", "Amistad Academy District", "Andover School District", "Ansonia School District", "Area Cooperative Educational Services", "Ashford School District", "Avon School District", "Barkhamsted School District", "Berlin School District", "Bethany School District", "Bethel School District", "Bloomfield School District", "Bolton School District", "Booker T. Washington Academy District", "Bozrah School District", "Branford School District", "Brass City Charter School District", "Bridgeport Achievement First District", "Bridgeport School District", "Bristol School District", "Brookfield School District", "Brooklyn School District", "Canaan School District", "Canterbury School District", "Canton School District", "Capital Preparatory Harbor School Inc. District", "Capitol Region Education Council", "Chaplin School District", "Charter School for Young Children on Asylum Hill District", "Cheshire School District", "Chester School District", "Clinton School District", "Colchester School District", "Colebrook School District", "Columbia School District", "Common Ground High School District", "Connecticut Technical High School System", "Cooperative Educational Services", "Cornwall School District", "Coventry School District", "Cromwell School District", "Danbury School District", "Darien School District", "Deep River School District", "Department of Mental Health and Addiction Services", "Derby School District", "East Granby School District", "East Haddam School District", "East Hampton School District", "East Hartford School District", "East Haven School District", "East Lyme School District", "East Windsor School District", "Eastern Connecticut Regional Educational Service Center (EASTCONN)", "Eastford School District", "Easton School District", "EdAdvance", "Education Connection", "Ellington School District", "Elm City College Preparatory School District", "Elm City Montessori School District", "Enfield School District", "Essex School District", "Explorations District", "Fairfield School District", "Farmington School District", "Franklin School District", "Glastonbury School District", "Granby School District", "Great Oaks Charter School District", "Greenwich School District", "Griswold School District", "Groton School District", "Guilford School District", "Hamden School District", "Hampton School District", "Hartford School District", "Hartland School District", "Hebron School District", "Highville Charter School District", "Integrated Day Charter School District", "Interdistrict School for Arts and Comm District", "Jumoke Academy District", "Kent School District", "Killingly School District", "Learn", "Lebanon School District", "Ledyard School District", "Lisbon School District", "Litchfield School District", "Madison School District", "Manchester School District", "Mansfield School District", "Marlborough School District", "Meriden School District", "Middletown School District", "Milford School District", "Monroe School District", "Montville School District", "Naugatuck School District", "New Beginnings Inc Family Academy District", "New Beginnings Inc., Family Academy District", "New Britain School District", "New Canaan School District", "New Fairfield School District", "New Hartford School District", "New Haven School District", "New London School District", "New Milford School District", "Newington School District", "Newtown School District", "Norfolk School District", "North Branford School District", "North Canaan School District", "North Haven School District", "North Stonington School District", "Norwalk School District", "Norwich Free Academy District", "Norwich School District", "Odyssey Community School District", "Old Saybrook School District", "Orange School District", "Oxford School District", "Park City Prep Charter School District", "Path Academy District", "Plainfield School District", "Plainville School District", "Plymouth School District", "Pomfret School District", "Portland School District", "Preston School District", "Putnam School District", "Redding School District", "Regional School District 01", "Regional School District 04", "Regional School District 05", "Regional School District 06", "Regional School District 07", "Regional School District 08", "Regional School District 09", "Regional School District 10", "Regional School District 11", "Regional School District 12", "Regional School District 13", "Regional School District 14", "Regional School District 15", "Regional School District 16", "Regional School District 17", "Regional School District 18", "Regional School District 19", "Ridgefield School District", "Rocky Hill School District", "Salem School District", "Salisbury School District", "Scotland School District", "Seymour School District", "Sharon School District", "Shelton School District", "Sherman School District", "Side By Side Charter School District", "Simsbury School District", "Somers School District", "South Windsor School District", "Southington School District", "Sprague School District", "Stafford School District", "Stamford Academy District", "Stamford Charter School for Excellence District", "Stamford School District", "Sterling School District", "Stonington School District", "Stratford School District", "Suffield School District", "The Bridge Academy District", "The Gilbert School District", "Thomaston School District", "Thompson School District", "Tolland School District", "Torrington School District", "Trailblazers Academy District", "Trumbull School District", "Unified School District #1", "Unified School District #2", "Union School District", "Vernon School District", "Voluntown School District", "Wallingford School District", "Waterbury School District", "Waterford School District", "Watertown School District", "West Hartford School District", "West Haven School District", "Westbrook School District", "Weston School District", "Westport School District", "Wethersfield School District", "Willington School District", "Wilton School District", "Winchester School District", "Windham School District", "Windsor Locks School District", "Windsor School District", "Wolcott School District", "Woodbridge School District", "Woodstock Academy District", "Woodstock School District"]
+			"options": ["State of Connecticut", "All Districts", "Achievement First Hartford Academy Inc. District", "Amistad Academy District", "Andover School District", "Ansonia School District", "Ashford School District", "Avon School District", "Barkhamsted School District", "Berlin School District", "Bethany School District", "Bethel School District", "Bloomfield School District", "Bolton School District", "Booker T. Washington Academy District", "Bozrah School District", "Branford School District", "Brass City Charter School District", "Bridgeport Achievement First District", "Bridgeport School District", "Bristol School District", "Brookfield School District", "Brooklyn School District", "Canaan School District", "Canterbury School District", "Canton School District", "Chaplin School District", "Charter School for Young Children on Asylum Hill District", "Cheshire School District", "Chester School District", "Clinton School District", "Colchester School District", "Colebrook School District", "Columbia School District", "Common Ground High School District", "Cornwall School District", "Coventry School District", "Cromwell School District", "Cross Cultural Academy District", "Danbury School District", "Darien School District", "Deep River School District", "Derby School District", "East Granby School District", "East Haddam School District", "East Hampton School District", "East Hartford School District", "East Haven School District", "East Lyme School District", "East Windsor School District", "Eastford School District", "Easton School District", "Ellington School District", "Elm City College Preparatory School", "Elm City College Preparatory School District", "Elm City Montessori School District", "Enfield School District", "Essex School District", "Explorations District", "Fairfield School District", "Farmington School District", "Franklin School District", "Glastonbury School District", "Granby School District", "Great Oaks Charter School District", "Greenwich School District", "Griswold School District", "Groton School District", "Guilford School District", "Hamden School District", "Hampton School District", "Hartford School District", "Hartland School District", "Hebron School District", "Highville Charter School District", "Highville Mustard Seed Charter School District", "Integrated Day Charter School District", "Interdistrict School for Arts and Comm District", "Jumoke Academy District", "Kent School District", "Killingly School District", "Lebanon School District", "Ledyard School District", "Lisbon School District", "Litchfield School District", "Madison School District", "Manchester School District", "Mansfield School District", "Marlborough School District", "Meriden School District", "Middletown School District", "Milford School District", "Monroe School District", "Montville School District", "Naugatuck School District", "New Beginnings Inc., Family Academy District", "New Britain School District", "New Canaan School District", "New Fairfield School District", "New Hartford School District", "New Haven School District", "New London School District", "New Milford School District", "Newington School District", "Newtown School District", "Norfolk School District", "North Branford School District", "North Canaan School District", "North Haven School District", "North Stonington School District", "Norwalk School District", "Norwich School District", "Odyssey Community School District", "Old Saybrook School District", "Orange School District", "Oxford School District", "Park City Prep Charter School District", "Path Academy District", "Plainfield School District", "Plainville School District", "Plymouth School District", "Pomfret School District", "Portland School District", "Preston School District", "Putnam School District", "Redding School District", "Regional School District 01", "Regional School District 04", "Regional School District 05", "Regional School District 06", "Regional School District 07", "Regional School District 08", "Regional School District 09", "Regional School District 10", "Regional School District 11", "Regional School District 12", "Regional School District 13", "Regional School District 14", "Regional School District 15", "Regional School District 16", "Regional School District 17", "Regional School District 18", "Regional School District 19", "Ridgefield School District", "Rocky Hill School District", "Salem School District", "Salisbury School District", "Scotland School District", "Seymour School District", "Sharon School District", "Shelton School District", "Sherman School District", "Side By Side Charter School District", "Simsbury School District", "Somers School District", "South Windsor School District", "Southington School District", "Sprague School District", "Stafford School District", "Stamford Academy District", "Stamford School District", "Sterling School District", "Stonington School District", "Stratford School District", "Suffield School District", "The Bridge Academy District", "Thomaston School District", "Thompson School District", "Tolland School District", "Torrington School District", "Trailblazers Academy District", "Trumbull School District", "Union School District", "Vernon School District", "Voluntown School District", "Wallingford School District", "Waterbury School District", "Waterford School District", "Watertown School District", "West Hartford School District", "West Haven School District", "Westbrook School District", "Weston School District", "Westport School District", "Wethersfield School District", "Willington School District", "Wilton School District", "Winchester School District", "Windham School District", "Windsor Locks School District", "Windsor School District", "Wolcott School District", "Woodbridge School District", "Woodstock School District"]
 		}]
 	},
 	"Enrollment": {
 		"dataset": "Enrollment",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FEnrollmentReport&_default=Yes&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_subgroup=All+Students+&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FEnrollmentReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//EnrollmentYearExport&_year=2015-16&_district=All+Districts&_school=+&_subgroup=All+Students&display=1",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -171,7 +181,8 @@
 	},
 	"Primary Disability": {
 		"dataset": "Primary Disability",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_year=Trend&_district=State%20of%20Connecticut&_parampass=Yes&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=State+of+Connecticut&_subgroup=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PrimaryDisabilityExport&_year=2015-16&_district=State+of+Connecticut&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -188,7 +199,8 @@
 	},
 	"Time with Nondisabled Peers": {
 		"dataset": "Time with Nondisabled Peers",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_year=2015-16&_district=State%20of%20Connecticut&_select=Submit&_subgroup=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/TimeWithNonDisPeersExport&_year=2015-16&_district=State+of+Connecticut&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -206,6 +218,7 @@
 	"Educator Demographics": {
 		"dataset": "Educator Demographics",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FStaffingRaceReport&_default=Yes&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/StaffingRaceExport&_year=Trend&_district=State+of+Connecticut&_school=+&_subgroup=All",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -226,7 +239,8 @@
 	},
 	"Educator Qualifications": {
 		"dataset": "Educator Qualifications",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_district=State%20of%20Connecticut&_select=Submit&_parampass=Yes",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=State+of+Connecticut&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/HQTExport&_year=2015-16&_district=State+of+Connecticut&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -244,6 +258,7 @@
 	"Staffing Levels": {
 		"dataset": "Staffing Levels",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFTEStaffingReport&_select=Submit&_parampass=Yes",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/FTEStaffingExport&_year=2014-15&_district=+&_school=+&_filterby=+&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -266,9 +281,10 @@
 			"options": ["All Categories", "Administrators, Coordinators and Department Chairs - District Central Office", "Administrators, Coordinators and Department Chairs - School Level", "Counselors, Social Workers, and School Psychologists", "General Education - Paraprofessional Instructional Assistants", "General Education - Teachers and Instructors", "Instructional Specialists Who Support Teachers", "Library/Media - Specialists (Certified)", "Library/Media - Support Staff", "Other Staff Providing Non-Instructional Services/Support", "School Nurses", "Special Education - Paraprofessional Instructional Assistants", "Special Education - Teachers and Instructors"]
 		}]
 	},
-	"CMT": {
-		"dataset": "CMT",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCMTCAPTScienceReport&_select=Submit&_parampass=Yes",
+	"CMT/CAPT Science": {
+		"dataset": "CMT/CAPT Science",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_grade=All+Grades+Combined&_year=2015-16&_district=All+Districts&_school=&_subgroup=All+Students+&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCMTCAPTScienceReport&_select=Submit",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/CMTCAPTScienceExport&_year=2015-16&_district=All+Districts&_subgroup=All+Students&_school=+&_grade=All+Grades+Combined",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -291,9 +307,10 @@
 			"options": []
 		}]
 	},
-	"College Enterance and Persistence": {
-		"dataset": "College Enterance and Persistence",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCollegeEntranceandPersistenceReport&_select=Submit&_parampass=Yes",
+	"College Entrance and Persistence": {
+		"dataset": "College Entrance and Persistence",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCollegeEntranceandPersistenceReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2015-16&_school=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/CollegeEntranceExport&_year=2013-14&_district=All+Districts&_school=+&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -315,6 +332,7 @@
 	"Four-Year Graduation Rates": {
 		"dataset": "Graduation Rates",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All+Students&_school=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GraduationExport&_year=2013-14&_district=All+Districts&_subgroup=All+Students&_school=+&_rate=+&_gradcat=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -340,6 +358,7 @@
 	"Five-Year Graduation Rates": {
 		"dataset": "Five-Year Graduation Rates",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_rate=5&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All%20Students&_school=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GraduationExport&_year=2013-14&_district=All+Districts&_subgroup=All+Students&_school=+&_rate=5&_gradcat=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -365,6 +384,7 @@
 	"Six-Year Graduation Rates": {
 		"dataset": "Six-Year Graduation Rates",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_rate=6&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All%20Students&_school=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GraduationExport&_year=2012-13&_district=All+Districts&_subgroup=All+Students&_school=+&_rate=6&_gradcat=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -389,7 +409,8 @@
 	},
 	"Fitness": {
 		"dataset": "Fitness",
-		"link": "http://edsight.ct.gov/SASStoredProcess/do?_grade=All+Grades+Combined&_year=2015-16&_district=All+Districts&_school=&_subgroup=+&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPhysicalFitnessTestReport&_select=Submit",
+		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPhysicalFitnessTestReport&_year=2012-13&_district=All%20Districts&_subgroup=+&_grade=All+Grades+Combined&_school=&_select=Submit&_parampass=Yes",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/physicalfitnesstestExport&_year=2012-13&_district=All+Districts&_school=+&_subgroup=+&_grade=All+Grades+Combined",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -415,6 +436,7 @@
 	"SAT": {
 		"dataset": "SAT",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FCTSchoolDaySATReport&_year=2015-16&_district=All%20Districts&_subject=All+Subjects&_subgroup=All+Students&_select=Submit&_parampass=Yes&_school=",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/CTSchoolDaySATExport&_year=2015-16&_district=All+Districts&_subgroup=All+Students&_school=+&_subject=All+Subjects",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -440,6 +462,7 @@
 	"Smarter Balanced": {
 		"dataset": "Smarter Balanced",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FSmarterBalancedAssessmentReport&_district=All%20Districts&_year=2015-16&_subgroup=All+Students&_grade=All+Grades+Combined&_school=+&_subject=ELA+and+Math&_select=Submit&_parampass=Yes",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/SmarterBalancedAssessmentExport&_year=2015-16&_district=All+Districts&_subgroup=All+Students&_school=+&_subject=ELA+and+Math&_grade=All+Grades+Combined",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",
@@ -469,6 +492,7 @@
 	"Smarter Balanced Growth Model": {
 		"dataset": "Smarter Balanced Growth Model",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGrowthModelReport&_year=2015-16&_district=All%20Districts&_school=%20&_subject=ELA%20and%20Math&_subgroup=All%20Students&_grade=All+Grades+Combined&_select=Submit&_parampass=Yes",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GrowthModelExport&_year=2015-16&_district=All+Districts&_subgroup=All+Students&_school=+&_subject=ELA+and+Math&_grade=All+Grades+Combined",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",

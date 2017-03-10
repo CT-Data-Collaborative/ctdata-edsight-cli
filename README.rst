@@ -22,12 +22,13 @@ Click based CLI for scraping CTSDE EdSight
 
 
 * Free software: MIT license
-* Documentation: https://ctdata-edsight-scraping-tool.readthedocs.io.
 
 
 Features
 --------
 
+* Command line tool for exploring CT SDE's EdSight database
+*
 * JSON or YAML based specification of dataset to scrape
 
 Credits

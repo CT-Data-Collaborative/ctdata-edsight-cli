@@ -182,7 +182,7 @@
 	"Primary Disability": {
 		"dataset": "Primary Disability",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=State+of+Connecticut&_subgroup=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_select=Submit",
-		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PrimaryDisabilityExport&_year=2015-16&_district=State+of+Connecticut&_subgroup=+",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PrimaryDisabilityExport&_year=2015-16&_district=All+Districts&_subgroup=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",

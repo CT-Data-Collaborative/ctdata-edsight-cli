@@ -9,13 +9,32 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
+
+INSTALL_REQUIRES = [
     'Click>=6.0',
     'Requests>=2.13.0',
     'beautifulsoup4>=4.5.3',
-    'progressbar2'
-    # TODO: put package requirements here
+    'progressbar2',
+    'selenium',
 ]
+
+EXTRAS_REQUIRE = {
+    # ...
+}
+
+if int(setuptools.__version__.split(".", 1)[0]) < 18:
+    if sys.version_info[0:2] >= (3, 5):
+        INSTALL_REQUIRES.append("aiohttp")
+        INSTALL_REQUIRES.append("aiofiles")
+else:
+    EXTRAS_REQUIRE[":python_version>='3.5'"] = ["aiohttp", "aiofiles"]
+
+setup(
+    # ...
+    install_requires=INSTALL_REQUIRES,
+    extras_require=EXTRAS_REQUIRE,
+)
+
 
 test_requirements = [
     # TODO: put package test requirements here
@@ -40,7 +59,8 @@ setup(
         ]
     },
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=INSTALL_REQUIRES,
+    extras_require=EXTRAS_REQUIRE,
     license="MIT license",
     zip_safe=False,
     keywords='ctdata_edsight_scraping_tool',

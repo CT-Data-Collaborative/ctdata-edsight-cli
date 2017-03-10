@@ -63,3 +63,4 @@ target/
 
 # PyCharm Stuff
 .idea/
+.DS_Store

@@ -54,7 +54,7 @@ def build_links_object_json():
     """Launch a chrome browser and kick off the scraping"""
     browser = setup_chrome_browser()
     browser.get('http://edsight.ct.gov')
-    with open("ctdata_edsight_scraping_tool/datasets.json", 'r') as f:
+    with open("datasets.json", 'r') as f:
         links = json.load(f)
     links_object = {k:scrape_dataset(browser, v) for k,v in links.items() }
     browser.quit()

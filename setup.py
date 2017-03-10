@@ -53,6 +53,9 @@ setup(
     ],
     package_dir={'ctdata_edsight_scraping_tool':
                  'ctdata_edsight_scraping_tool'},
+    package_data={
+      '': ['*.json']
+    },
     entry_points={
         'console_scripts': [
             'edsight=ctdata_edsight_scraping_tool.cli:main'

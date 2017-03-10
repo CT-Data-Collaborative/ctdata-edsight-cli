@@ -8,11 +8,16 @@ from pkg_resources import resource_string
 
 from .links_prep import rebuild
 
+ASYNC_AVAILABLE = False
+
 # Import sync or async version of fetching routine
 if sys.version_info[0:2] >= (3, 5):
     from .fetch_async import fetch_async as fetcher
+    from .fetch_sync import fetch_sync as fetcher_sync
+    ASYNC_AVAILABLE = True
 else:
     from .fetch_sync import fetch_sync as fetcher
+
 
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
@@ -32,6 +37,10 @@ def main(args=None):
     """Console script for ctdata_edsight_scraping_tool"""
 
 @main.command()
+@click.option('--async',
+              is_flag=True,
+              help="Use the faster, asynchronous download script if on Python 3.5+."
+              )
 @click.option('--dataset', '-d',
               required=True,
               help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
@@ -45,14 +54,21 @@ def main(args=None):
               required=True,
               multiple=True,
               help="Variable to fetch. Can be multiple in which case each combination will be fetched")
-def fetch(dataset, output_dir, variable):
+def fetch(dataset, output_dir, variable, async):
     """Download the csv file of the dataset to a target directory.
 
     On Python versions below 3.5, fetching can take a few minutes or more to complete. This because each dataset is
     requested in sequence. In Python 3.5 and 3.6, the data requests happen asynchronously which results in significant
     performance gains.
     """
-    fetcher(dataset, output_dir, variable)
+    if async and ASYNC_AVAILABLE:
+        fetcher(dataset, output_dir, variable)
+    elif async and not ASYNC_AVAILABLE:
+        click.echo("Sorry, but the async downloader is not available on your platform.")
+        if click.confirm("Do you want to proceed with the default downloader?"):
+            fetcher_sync(dataset, output_dir, variable)
+    else:
+        fetcher_sync(dataset, output_dir, variable)
 
 @main.command()
 @click.option('--target', required=True)

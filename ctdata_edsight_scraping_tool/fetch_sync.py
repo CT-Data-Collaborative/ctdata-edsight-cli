@@ -6,6 +6,10 @@ import requests
 import progressbar
 
 
+with open("datasets.json", 'r') as f:
+    links = json.load(f)
+
+
 def fetch_sync(dataset, output_dir, variable):
     """Download the csv file of the dataset to a target directory."""
     ds = links[dataset]

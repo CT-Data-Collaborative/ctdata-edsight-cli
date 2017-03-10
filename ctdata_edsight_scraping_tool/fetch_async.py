@@ -13,7 +13,7 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
-with open("ctdata_edsight_scraping_tool/datasets.json", 'r') as f:
+with open("datasets.json", 'r') as f:
     links = json.load(f)
 
 

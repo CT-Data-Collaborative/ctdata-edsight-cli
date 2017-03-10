@@ -4,6 +4,8 @@ import sys
 
 import click
 
+from pkg_resources import resource_string
+
 from .links_prep import rebuild
 
 # Import sync or async version of fetching routine
@@ -21,8 +23,8 @@ HEADERS = {
 }
 
 
-with open("datasets.json", 'r') as f:
-    links = json.load(f)
+
+links = json.loads(resource_string(__name__, 'dataset.json'))
 
 
 @click.group()

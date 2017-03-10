@@ -5,6 +5,8 @@ import aiohttp
 from urllib.parse import urlparse, parse_qs
 from itertools import product
 
+from pkg_resources import resource_string
+links = json.loads(resource_string(__name__, 'dataset.json'))
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {
@@ -12,9 +14,6 @@ HEADERS = {
                    'AppleWebKit/537.36 (KHTML, like Gecko) '
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
-
-with open("datasets.json", 'r') as f:
-    links = json.load(f)
 
 
 def build_params_list(dataset, base_qs, variables):

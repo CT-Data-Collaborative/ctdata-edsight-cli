@@ -5,9 +5,8 @@ import click
 import requests
 import progressbar
 
-
-with open("datasets.json", 'r') as f:
-    links = json.load(f)
+from pkg_resources import resource_string
+links = json.loads(resource_string(__name__, 'dataset.json'))
 
 
 def fetch_sync(dataset, output_dir, variable):

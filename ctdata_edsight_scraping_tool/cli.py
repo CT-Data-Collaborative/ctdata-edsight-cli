@@ -24,7 +24,7 @@ HEADERS = {
 
 
 
-links = json.loads(resource_string(__name__, 'dataset.json'))
+links = json.loads(resource_string(__name__, 'datasets.json'))
 
 
 @click.group()

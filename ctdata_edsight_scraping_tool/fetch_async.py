@@ -6,7 +6,7 @@ from urllib.parse import urlparse, parse_qs
 from itertools import product
 
 from pkg_resources import resource_string
-links = json.loads(resource_string(__name__, 'dataset.json'))
+links = json.loads(resource_string(__name__, 'datasets.json'))
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {

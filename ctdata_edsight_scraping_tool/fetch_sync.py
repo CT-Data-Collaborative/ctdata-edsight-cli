@@ -6,7 +6,7 @@ import requests
 import progressbar
 
 from pkg_resources import resource_string
-links = json.loads(resource_string(__name__, 'dataset.json'))
+links = json.loads(resource_string(__name__, 'datasets.json'))
 
 
 def fetch_sync(dataset, output_dir, variable):

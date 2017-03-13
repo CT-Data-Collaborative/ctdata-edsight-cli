@@ -16,10 +16,21 @@ def setup_chrome_browser():
 
 def get_options(browser, name):
     """Does the actual work of getting the options and dropping empties"""
-    do_not_keep = ['', ' ', '  ', '   ']
+    do_not_keep = ['', '  ', '   ']
     target = browser.find_element_by_xpath('//*[@name="{}"]'.format(name))
     choices = target.find_elements_by_tag_name('option')
-    return [c.text for c in choices if c.text not in do_not_keep]
+    results = []
+    for c in choices:
+        r = c.get_attribute('value')
+        if r not in do_not_keep and r is not None:
+            results.append(r)
+        else:
+            r = c.text
+            if r not in do_not_keep and r is not None:
+                results.append(r)
+            else:
+                pass
+    return results
 
 def build_variable_object(browser, variable):
     """For a given variable, get all of the options. Looking at schools requires that All Districts be selected"""
@@ -50,18 +61,16 @@ def scrape_dataset(browser, dataset):
         'filters': new_var_object
     }
 
-def build_links_object_json():
+def build_links_object_json(links):
     """Launch a chrome browser and kick off the scraping"""
     browser = setup_chrome_browser()
     browser.get('http://edsight.ct.gov')
-    with open("datasets.json", 'r') as f:
-        links = json.load(f)
     links_object = {k:scrape_dataset(browser, v) for k,v in links.items() }
     browser.quit()
     return links_object
 
-def rebuild(outfile):
+def rebuild(links, outfile):
     """Take a file path name, rebuild the dataset manifest and write to the new file"""
-    new_links = build_links_object_json()
+    new_links = build_links_object_json(links)
     with open(outfile, 'w') as f:
         json.dump(new_links, f)

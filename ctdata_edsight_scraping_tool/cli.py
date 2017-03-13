@@ -70,10 +70,10 @@ def fetch(dataset, output_dir, variable, async):
         fetcher_sync(dataset, output_dir, variable, links, save=True)
 
 @main.command()
-@click.option('--target', required=True)
+@click.option('--target', '-t', required=True)
 def refresh(target):
     """Update the dataset manifest file with a refreshed list of possible variables."""
-    rebuild(target)
+    rebuild(links, target)
 
 @main.command()
 def datasets(args=None):

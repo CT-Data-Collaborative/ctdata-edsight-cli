@@ -14,7 +14,8 @@ HEADERS = {
 # TODO Should move the sesssion context manager one level up so I can
 # resuse across requests and so that I can add limitation to connection pool
 async def get_report(url, params, file, save):
-    print('Getting {}\n'.format(file))
+    print('Getting {} at {}\n'.format(file, url))
+
     async with aiohttp.ClientSession() as session:
         async with session.get(BASE_URL, headers=HEADERS) as context:
             pass

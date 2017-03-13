@@ -24,7 +24,7 @@
 	"Bullying": {
 		"dataset": "Bullying",
 		"link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FBullyingReport&_select=Submit",
-		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//BullyingExport&_year=2015-16&_district=All+Districts&_school=+",
+		"download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/BullyingExport&_year=2015-16&_district=All+Districts&_school=+",
 		"filters": [{
 			"name": "Year",
 			"xpath_id": "_year",

@@ -15,7 +15,7 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True):
         with progressbar.ProgressBar(max_value=len(targets)) as bar:
             for i, t in enumerate(targets):
                 bar.update(i)
-                click.echo("\n\nFetching:    {} {}".format(dataset, t['filename']))
+                click.echo("\n\nFetching: {} {} at {}".format(dataset, t['filename'], t['url']))
                 response = s.get(t['url'], params=t['param'])
                 if save:
                     with open(t['filename'], 'wb') as file:

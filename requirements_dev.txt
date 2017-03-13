@@ -8,3 +8,4 @@ coverage==4.1w
 Sphinx==1.4.8
 
 pytest==2.9.2
+responses==0.6.0

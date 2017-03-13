@@ -28,7 +28,6 @@ HEADERS = {
 }
 
 
-
 links = json.loads(resource_string(__name__, 'datasets.json'))
 
 
@@ -62,13 +61,13 @@ def fetch(dataset, output_dir, variable, async):
     performance gains.
     """
     if async and ASYNC_AVAILABLE:
-        fetcher(dataset, output_dir, variable)
+        fetcher(dataset, output_dir, variable, links)
     elif async and not ASYNC_AVAILABLE:
         click.echo("Sorry, but the async downloader is not available on your platform.")
         if click.confirm("Do you want to proceed with the default downloader?"):
-            fetcher_sync(dataset, output_dir, variable)
+            fetcher_sync(dataset, output_dir, variable, links, save=True)
     else:
-        fetcher_sync(dataset, output_dir, variable)
+        fetcher_sync(dataset, output_dir, variable, links, save=True)
 
 @main.command()
 @click.option('--target', required=True)

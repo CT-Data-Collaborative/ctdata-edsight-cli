@@ -43,19 +43,43 @@ def dataset():
             }]
     }
 
+
+
+@pytest.fixture
+def simple_dataset():
+    return { 'test': {
+        "dataset": "Chronic Absenteeism",
+        "link": "http://edsight.ct.gov/do",
+        "download_link": "http://edsight.ct.gov/do",
+        "filters": [
+            {
+                "name": "Year",
+                "xpath_id": "_year",
+                "options": ["Trend", "2015-16"]
+            },
+            {
+                "name": "Filter By",
+                "xpath_id": "_subgroup",
+                "options": ["All Students", "Race/Ethnicity"]
+            }]
+        }
+    }
+
+
+
 def test_single_var_params_list_generation(dataset):
     """Sample pytest test function with the pytest fixture as an argument.
     """
-    from ctdata_edsight_scraping_tool.fetch_async import build_params_list
-    params = build_params_list(dataset, {}, ['Year'])
+    from ctdata_edsight_scraping_tool.helpers import _build_params_list
+    params = _build_params_list(dataset, {}, ['Year'])
     assert params == [{'_year': 'Trend'}, {'_year': '2015-16'}, {'_year': '2014-15'}, {'_year': '2013-14'}, {'_year': '2012-13'}, {'_year': '2011-12'}]
 
 
 def test_two_var_params_list_generation(dataset):
     """Sample pytest test function with the pytest fixture as an argument.
     """
-    from ctdata_edsight_scraping_tool.fetch_async import build_params_list
-    params = build_params_list(dataset, {}, ['Year', 'Filter By'])
+    from ctdata_edsight_scraping_tool.helpers import _build_params_list
+    params = _build_params_list(dataset, {}, ['Year', 'Filter By'])
     assert params == [
         {'_year': 'Trend', '_subgroup': 'All Students'},
         {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
@@ -85,12 +109,12 @@ def test_two_var_params_list_generation(dataset):
 
 
 def test_get_xpaths(dataset):
-    from ctdata_edsight_scraping_tool.fetch_async import get_xpaths
-    xpaths = get_xpaths(dataset['filters'], ['Year', 'Filter By'])
+    from ctdata_edsight_scraping_tool.helpers import _get_xpaths
+    xpaths = _get_xpaths(dataset['filters'], ['Year', 'Filter By'])
     assert xpaths == ['_year', '_subgroup']
 
 def test_url_list_builder():
-    from ctdata_edsight_scraping_tool.fetch_async import build_url_list
+    from ctdata_edsight_scraping_tool.helpers import _build_url_list
 
     xpaths = ['_year', '_subgroup']
 
@@ -101,15 +125,30 @@ def test_url_list_builder():
         {'_year': '2011-12', '_subgroup': 'Race/Ethnicity'}
     ]
 
-    targets = [{'url': 'http://test.com', 'param': {'_year': 'Trend', '_subgroup': 'All Students'},
+    targets = [{'url': 'http://edsight.ct.gov', 'param': {'_year': 'Trend', '_subgroup': 'All Students'},
       'filename': './test_Trend_All-Students.csv'},
-     {'url': 'http://test.com', 'param': {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
+     {'url': 'http://edsight.ct.gov', 'param': {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
       'filename': './test_Trend_Race-Ethnicity.csv'},
-     {'url': 'http://test.com', 'param': {'_year': '2011-12', '_subgroup': 'All Students'},
+     {'url': 'http://edsight.ct.gov', 'param': {'_year': '2011-12', '_subgroup': 'All Students'},
       'filename': './test_2011-12_All-Students.csv'},
-     {'url': 'http://test.com', 'param': {'_year': '2011-12', '_subgroup': 'Race/Ethnicity'},
+     {'url': 'http://edsight.ct.gov', 'param': {'_year': '2011-12', '_subgroup': 'Race/Ethnicity'},
       'filename': './test_2011-12_Race-Ethnicity.csv'}]
 
-    outputs = build_url_list(params, xpaths, 'http://test.com', './', 'test')
+    outputs = _build_url_list(params, xpaths, 'http://edsight.ct.gov', './', 'test')
 
     assert outputs == targets
+
+def test_setup_download_targets(simple_dataset):
+    from ctdata_edsight_scraping_tool.helpers import _setup_download_targets
+
+    targets = [{'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'All Students'},
+                'filename': './test_Trend_All-Students.csv'},
+               {'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
+                'filename': './test_Trend_Race-Ethnicity.csv'},
+               {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'All Students'},
+                'filename': './test_2015-16_All-Students.csv'},
+               {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'Race/Ethnicity'},
+                'filename': './test_2015-16_Race-Ethnicity.csv'}]
+
+    results = _setup_download_targets('test', './', ['Year', 'Filter By'], simple_dataset)
+    assert results == targets

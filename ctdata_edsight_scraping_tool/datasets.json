@@ -3842,7 +3842,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": []
+                "options": ["All Grades Combined", "All Grades", "5", "8", "10"]
             }
         ]
     },

@@ -1,4 +1,21 @@
 # -*- coding: utf-8 -*-
+#     CT SDE EdSight Data Scraping Command Line Interface.
+#     Copyright (C) 2017  Sasha Cuerda, Connecticut Data Collaborative
+#
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
 import json
 import sys
 
@@ -33,7 +50,54 @@ links = json.loads(resource_string(__name__, 'datasets.json'))
 
 @click.group()
 def main(args=None):
-    """Console script for ctdata_edsight_scraping_tool"""
+    """Console script for ctdata_edsight_scraping_tool
+
+    CTData EdSight CLI  Copyright (C) 2017  Connecticut Data Collaborative
+    This program comes with ABSOLUTELY NO WARRANTY; for details type 'edsight warranty'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `edsight conditions' for details.
+    """
+
+@main.command()
+def warranty():
+    """Display GPL 3.0 warranty clause"""
+    click.echo("""
+    THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+    APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+    HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+    OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+    IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+    ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\n\n""")
+
+@main.command()
+def conditions():
+    """Display GPL 3.0 abbreviated conditions of redistribution clause."""
+    click.echo("""
+      All rights granted under this License are granted for the term of
+    copyright on the Program, and are irrevocable provided the stated
+    conditions are met.  This License explicitly affirms your unlimited
+    permission to run the unmodified Program.  The output from running a
+    covered work is covered by this License only if the output, given its
+    content, constitutes a covered work.  This License acknowledges your
+    rights of fair use or other equivalent, as provided by copyright law.
+
+      You may make, run and propagate covered works that you do not
+    convey, without conditions so long as your license otherwise remains
+    in force.  You may convey covered works to others for the sole purpose
+    of having them make modifications exclusively for you, or provide you
+    with facilities for running those works, provided that you comply with
+    the terms of this License in conveying all material for which you do
+    not control copyright.  Those thus making or running the covered works
+    for you must do so exclusively on your behalf, under your direction
+    and control, on terms that prohibit them from making any copies of
+    your copyrighted material outside their relationship with you.
+
+      Conveying under any other circumstances is permitted solely under
+    the conditions stated in the full license.  Sublicensing is not allowed;
+    section 10 makes it unnecessary.\n\n
+    """)
 
 @main.command()
 @click.option('--async',
@@ -99,3 +163,9 @@ def info(dataset, variable):
 
 if __name__ == "__main__":
     main()
+
+
+def gen_resource(directory_name, dataset_name):
+    datafiles = [f.replace("./", "./data/") for f in get_filepaths("./{}".format(directory_name)) if f.endswith(".csv")]
+    r = {"name": dataset_name, "data": datafiles}
+    return json.dumps(r)

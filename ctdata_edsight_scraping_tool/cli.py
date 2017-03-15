@@ -47,8 +47,8 @@ HEADERS = {
 
 
 
-
-LINKS_PATH = os.path.join(os.path.dirname(__file__), 'catalog', 'datasets.json')
+LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
+LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
 
 if os.path.isfile(LINKS_PATH):
     links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
@@ -57,6 +57,8 @@ else:
     import json
     r = requests.get('https://s3.amazonaws.com/edsightcli/datasets.json')
     links = json.loads(r.content)
+    if not os.path.isdir(LINKS_DIR):
+        os.makedirs(LINKS_DIR)
     with open(LINKS_PATH, 'w') as f:
         json.dump(links, f)
 

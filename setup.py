@@ -17,6 +17,7 @@ INSTALL_REQUIRES = [
     'progressbar2',
     'selenium',
     'awesome-slugify',
+    'boto'
 ]
 
 EXTRAS_REQUIRE = {

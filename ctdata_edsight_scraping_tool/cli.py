@@ -22,6 +22,8 @@ import os
 
 import click
 import requests
+import boto
+from boto.s3.key import Key
 
 from pkg_resources import resource_string
 
@@ -46,23 +48,42 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
-# Get the etag from s3
-s3_object = requests.head('https://s3.amazonaws.com/edsightcli/datasets.json')
-etag = s3_object.headers.get('ETag').replace('"','')
 
+########################################################################################
+#
+# Setup s3 and check etag
+#
+########################################################################################
 
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
-LINKS_PATH = os.path.join(LINKS_DIR, '{}.json'.format(etag))
+LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
+
+BUCKET_NAME = 'edsightcli'
+conn = boto.connect_s3()
+bucket = conn.get_bucket(BUCKET_NAME)
+
+def get_md5(filename):
+  f = open(filename, 'rb')
+  m = hashlib.md5()
+  while True:
+    data = f.read(10240)
+    if len(data) == 0:
+        break
+    m.update(data)
+  return m.hexdigest()
+
+
+# Get the etag from s3
+s3_file = bucket.get_key('datasets.json')
+s3_etag = s3_file.etag.strip("'").strip('"')
 
 # Look for a file named using the etag. If it is missing, it means the catalog has changed and we need to update
-if os.path.isfile(LINKS_PATH):
-    click.echo("Dataset catalog is found!")
-    links = json.loads(resource_string(__name__, 'catalog/{}.json'.format(etag)))
+if os.path.isfile(LINKS_PATH) and s3_etag == get_md5(LINKS_PATH):
+    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
 else:
     import json
     click.echo("Downloading the dataset catalog...")
-    r = requests.get('https://s3.amazonaws.com/edsightcli/datasets.json')
-    links = json.loads(r.content)
+    links = json.loads(s3_file.get_contents_as_string())
     if not os.path.isdir(LINKS_DIR):
         os.makedirs(LINKS_DIR)
     with open(LINKS_PATH, 'w') as f:

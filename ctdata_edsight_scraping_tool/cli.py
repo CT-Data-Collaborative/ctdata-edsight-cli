@@ -81,7 +81,7 @@ if os.path.isfile(LINKS_PATH) and s3_etag == get_md5(LINKS_PATH):
     links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
 else:
     import json
-    click.echo("Downloading the dataset catalog...")
+    click.echo("Refreshing the dataset catalog...")
     links = json.loads(s3_file.get_contents_as_string())
     if not os.path.isdir(LINKS_DIR):
         os.makedirs(LINKS_DIR)
@@ -100,10 +100,6 @@ def main(args=None):
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `edsight conditions' for details.
     """
-
-@main.command()
-def curdir():
-    click.echo(os.path.dirname(__file__))
 
 @main.command()
 def warranty():

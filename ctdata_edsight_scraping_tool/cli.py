@@ -46,7 +46,21 @@ HEADERS = {
 }
 
 
-links = json.loads(resource_string(__name__, 'datasets.json'))
+
+
+LINKS_PATH = os.path.join(os.path.dirname(__file__), 'catalog', 'datasets.json')
+
+if os.path.isfile(LINKS_PATH):
+    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
+else:
+    import requests
+    import json
+    r = requests.get('https://s3.amazonaws.com/edsightcli/datasets.json')
+    links = json.loads(r.content)
+    with open(LINKS_PATH, 'w') as f:
+        json.dump(links, f)
+
+
 
 
 @click.group()
@@ -58,6 +72,10 @@ def main(args=None):
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `edsight conditions' for details.
     """
+
+@main.command()
+def curdir():
+    click.echo(os.path.dirname(__file__))
 
 @main.command()
 def warranty():

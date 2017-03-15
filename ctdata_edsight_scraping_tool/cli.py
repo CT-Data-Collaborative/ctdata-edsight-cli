@@ -19,11 +19,10 @@
 import json
 import sys
 import os
+import hashlib
 
 import click
-import requests
 import boto
-from boto.s3.key import Key
 
 from pkg_resources import resource_string
 

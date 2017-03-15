@@ -21,6 +21,7 @@ import sys
 import os
 
 import click
+import requests
 
 from pkg_resources import resource_string
 
@@ -45,16 +46,21 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
+# Get the etag from s3
+s3_object = requests.head('https://s3.amazonaws.com/edsightcli/datasets.json')
+etag = s3.object.headers.get('ETag').replace('"','')
 
 
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
-LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
+LINKS_PATH = os.path.join(LINKS_DIR, '{}.json'.format(etag))
 
+# Look for a file named using the etag. If it is missing, it means the catalog has changed and we need to update
 if os.path.isfile(LINKS_PATH):
-    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
+    click.echo("Dataset catalog is found!")
+    links = json.loads(resource_string(__name__, 'catalog/{}.json'.format(etag)))
 else:
-    import requests
     import json
+    click.echo("Downloading the dataset catalog...")
     r = requests.get('https://s3.amazonaws.com/edsightcli/datasets.json')
     links = json.loads(r.content)
     if not os.path.isdir(LINKS_DIR):

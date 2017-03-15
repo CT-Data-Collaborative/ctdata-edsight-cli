@@ -1,5 +1,5 @@
 {
-    "Attendance": {
+    "Chronic Absenteeism": {
         "dataset": "Chronic Absenteeism",
         "link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FChronicAbsenteeismReport&_select=Submit&_parampass=Yes",
         "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/ChronicAbsenteeismExport&_year=2015-16&_district=+&_subgroup=All+Students&_school=+",
@@ -4209,7 +4209,7 @@
                 ]
             },
             {
-                "name": "Race/Ethnicity",
+                "name": "Subgroup",
                 "xpath_id": "_subgroup",
                 "options": [
                     "All Students ",
@@ -4396,7 +4396,7 @@
                 ]
             },
             {
-                "name": "Race/Ethnicity",
+                "name": "Subgroup",
                 "xpath_id": "_subgroup",
                 "options": [
                     "All Students ",
@@ -4582,7 +4582,7 @@
                 ]
             },
             {
-                "name": "Race/Ethnicity",
+                "name": "Subgroup",
                 "xpath_id": "_subgroup",
                 "options": [
                     "All Students ",

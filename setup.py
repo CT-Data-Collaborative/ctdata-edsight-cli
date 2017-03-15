@@ -16,6 +16,7 @@ INSTALL_REQUIRES = [
     'beautifulsoup4>=4.5.3',
     'progressbar2',
     'selenium',
+    'awesome-slugify',
 ]
 
 EXTRAS_REQUIRE = {

@@ -16,10 +16,12 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-
+import os
 from urllib.parse import urlparse, parse_qs
 from itertools import product
+from slugify import Slugify
 
+custom_slugify = Slugify(to_lower=True)
 
 HEADERS = {
     'user-agent': ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) '
@@ -56,9 +58,10 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         # these for the file naming, which is why we use the xpath lookup to pull out the subset
         f = [p[v] for v in xpaths]
         filename_variables = '_'.join(f)
-        slug = filename_variables.replace('/', '-').replace(' ', '-')
-        filename = "{}{}_{}.csv".format(output_dir, dataset_name, slug)
-        targets.append({'url': url, 'param': p, 'filename': filename})
+        filename = "{}_{}.csv".format(dataset_name, filename_variables)
+        slugged_filename = custom_slugify(filename)
+        full_output_path = os.path.join(os.path.abspath(output_dir), slugged_filename)
+        targets.append({'url': url, 'param': p, 'filename': full_output_path})
     return targets
 
 def _setup_download_targets(dataset, output_dir, variable, catalog):

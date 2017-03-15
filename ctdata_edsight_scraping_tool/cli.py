@@ -18,6 +18,7 @@
 
 import json
 import sys
+import os
 
 import click
 
@@ -100,7 +101,7 @@ def conditions():
     """)
 
 @main.command()
-@click.option('--async',
+@click.option('--async', '-a',
               is_flag=True,
               help="Use the faster, asynchronous download script if on Python 3.5+."
               )
@@ -124,6 +125,8 @@ def fetch(dataset, output_dir, variable, async):
     requested in sequence. In Python 3.5 and 3.6, the data requests happen asynchronously which results in significant
     performance gains.
     """
+    if not os.path.isdir(output_dir):
+        raise NotADirectoryError("{} not a valid directory".format(output_dir))
     if async and ASYNC_AVAILABLE:
         fetcher(dataset, output_dir, variable, links)
     elif async and not ASYNC_AVAILABLE:

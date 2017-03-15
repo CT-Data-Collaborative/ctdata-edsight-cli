@@ -48,7 +48,7 @@ HEADERS = {
 
 # Get the etag from s3
 s3_object = requests.head('https://s3.amazonaws.com/edsightcli/datasets.json')
-etag = s3.object.headers.get('ETag').replace('"','')
+etag = s3_object.headers.get('ETag').replace('"','')
 
 
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')

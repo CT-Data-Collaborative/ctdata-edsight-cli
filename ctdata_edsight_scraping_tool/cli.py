@@ -188,11 +188,11 @@ def fetch(dataset, output_dir, variable, async):
     else:
         fetcher_sync(dataset, output_dir, variable, links, save=True)
 
-@main.command()
-@click.option('--target', '-t', required=True)
-def refresh(target):
-    """Update the dataset manifest file with a refreshed list of possible variables."""
-    rebuild(links, target)
+# @main.command()
+# @click.option('--target', '-t', required=True)
+# def refresh(target):
+#     """Update the dataset manifest file with a refreshed list of possible variables."""
+#     rebuild(links, target)
 
 @main.command()
 def datasets(args=None):
@@ -201,8 +201,8 @@ def datasets(args=None):
         click.echo(d[0])
 
 @main.command()
-@click.option('--dataset', required=True,)
-@click.option('--variable', required=False)
+@click.option('--dataset', '-d', required=True,)
+@click.option('--variable', '-v', required=False)
 def info(dataset, variable):
     """Information about a dataset. Takes dataset name as an argument."""
     filters = links[dataset]['filters']

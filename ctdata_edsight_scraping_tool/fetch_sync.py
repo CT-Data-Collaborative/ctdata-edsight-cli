@@ -30,15 +30,15 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True, mute=False):
     with requests.session() as s:
         s.get(BASE_URL)
 
+        click.echo("Fetching {}\n\n".format(dataset))
         with progressbar.ProgressBar(max_value=len(targets)) as bar:
             for i, t in enumerate(targets):
                 bar.update(i)
                 target_url_query = urllib.parse.urlencode(t['param']).replace('%2F', '/')
 
                 if not mute:
-                    click.echo("\n\nDownloading: {}\nTo: {}\nFrom: {}{}".format(dataset,
-                                                                         os.path.basename(t['filename']),
-                                                                         t['url'],target_url_query))
+                    click.echo("\n\nDownloading: {}\nFrom: {}{}".format(os.path.basename(t['filename']),
+                                                                        t['url'],target_url_query))
                 response = s.get(t['url'], params=t['param'])
                 if save:
                     with open(t['filename'], 'wb') as file:

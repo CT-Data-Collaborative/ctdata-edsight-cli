@@ -21,6 +21,7 @@ from itertools import product
 from slugify import Slugify
 
 custom_slugify = Slugify(to_lower=True)
+custom_slugify.safe_chars = '_'
 
 HEADERS = {
     'user-agent': ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) '
@@ -57,7 +58,7 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         # these for the file naming, which is why we use the xpath lookup to pull out the subset
         f = [p[v] for v in xpaths]
         filename_variables = '_'.join(f)
-        filename = "{}_{}".format(dataset_name, filename_variables)
+        filename = "{}__{}".format(dataset_name, filename_variables)
         slugged_filename = "{}.csv".format(custom_slugify(filename))
         full_output_path = os.path.join(os.path.abspath(output_dir), slugged_filename)
         targets.append({'url': url, 'param': p, 'filename': full_output_path})

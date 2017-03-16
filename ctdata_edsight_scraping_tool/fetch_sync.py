@@ -39,7 +39,19 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True, mute=False):
                 if not mute:
                     click.echo("\n\nDownloading: {}\nFrom: {}?{}".format(os.path.basename(t['filename']),
                                                                         t['url'],target_url_query))
-                response = s.get(t['url'], params=t['param'])
-                if save:
+
+                ATTEMPTS = 0
+                STATUS_CODE = 0
+                while ATTEMPTS < 3 and STATUS_CODE != 200:
+                    try:
+                        response = s.get(t['url'], params=t['param'])
+                    except Exception as e:
+                        click.echo(e)
+                        STATUS_CODE = 0
+                        continue
+                    STATUS_CODE = response.status_code
+                if save and STATUS_CODE == 200:
                     with open(t['filename'], 'wb') as file:
                         file.write(response.content)
+                else:
+                    click.echo("We had an issue with this dataset. Please try again.")

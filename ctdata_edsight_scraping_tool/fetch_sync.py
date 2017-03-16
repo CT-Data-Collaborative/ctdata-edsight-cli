@@ -36,7 +36,7 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True, mute=False):
                 target_url_query = urllib.parse.urlencode(t['param'])
 
                 if not mute:
-                    click.echo("\n\nDownloading: {}\n{}\nfrom {}{}".format(dataset,
+                    click.echo("\n\nDownloading: {}\nTo: {}\nFrom: {}{}".format(dataset,
                                                                          os.path.basename(t['filename']),
                                                                          t['url'],target_url_query))
                 response = s.get(t['url'], params=t['param'])

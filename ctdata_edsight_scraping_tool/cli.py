@@ -170,7 +170,10 @@ def conditions():
               required=True,
               multiple=True,
               help="Variable to fetch. Can be multiple in which case each combination will be fetched")
-def fetch(dataset, output_dir, variable, async):
+@click.option('--mute', '-m',
+              is_flag=True,
+              help="Suppress downloading activity output.")
+def fetch(dataset, output_dir, variable, async, mute):
     """Download the csv file of the dataset to a target directory.
 
     On Python versions below 3.5, fetching can take a few minutes or more to complete. This because each dataset is
@@ -184,7 +187,7 @@ def fetch(dataset, output_dir, variable, async):
     elif async and not ASYNC_AVAILABLE:
         click.echo("Sorry, but the async downloader is not available on your platform.")
         if click.confirm("Do you want to proceed with the default downloader?"):
-            fetcher_sync(dataset, output_dir, variable, links, save=True)
+            fetcher_sync(dataset, output_dir, variable, links, save=True, mute)
     else:
         fetcher_sync(dataset, output_dir, variable, links, save=True)
 

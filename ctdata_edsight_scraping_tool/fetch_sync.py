@@ -24,7 +24,7 @@ from .helpers import _setup_download_targets
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 
-def fetch_sync(dataset, output_dir, variable, catalog, save=True):
+def fetch_sync(dataset, output_dir, variable, catalog, save=True, mute=False):
     """Download the csv file of the dataset to a target directory."""
     targets = _setup_download_targets(dataset, output_dir, variable, catalog)
     with requests.session() as s:
@@ -35,9 +35,10 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True):
                 bar.update(i)
                 target_url_query = urllib.parse.urlencode(t['param'])
 
-                click.echo("\n\nDownloading: {}\n{}\nfrom {}{}".format(dataset,
-                                                                     os.path.basename(t['filename']),
-                                                                     t['url'],target_url_query))
+                if not mute:
+                    click.echo("\n\nDownloading: {}\n{}\nfrom {}{}".format(dataset,
+                                                                         os.path.basename(t['filename']),
+                                                                         t['url'],target_url_query))
                 response = s.get(t['url'], params=t['param'])
                 if save:
                     with open(t['filename'], 'wb') as file:

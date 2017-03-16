@@ -80,7 +80,7 @@ def _catalog_update():
 try:
     links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
 except FileNotFoundError:
-    update()
+    _catalog_update()
 
 
 

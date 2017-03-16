@@ -187,7 +187,7 @@ def fetch(dataset, output_dir, variable, async, mute):
     elif async and not ASYNC_AVAILABLE:
         click.echo("Sorry, but the async downloader is not available on your platform.")
         if click.confirm("Do you want to proceed with the default downloader?"):
-            fetcher_sync(dataset, output_dir, variable, links, save=True, mute)
+            fetcher_sync(dataset, output_dir, variable, links, save=True, mute=mute)
     else:
         fetcher_sync(dataset, output_dir, variable, links, save=True)
 

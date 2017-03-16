@@ -33,7 +33,7 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True, mute=False):
         with progressbar.ProgressBar(max_value=len(targets)) as bar:
             for i, t in enumerate(targets):
                 bar.update(i)
-                target_url_query = urllib.parse.urlencode(t['param'])
+                target_url_query = urllib.parse.urlencode(t['param']).replace('%2F', '/')
 
                 if not mute:
                     click.echo("\n\nDownloading: {}\nTo: {}\nFrom: {}{}".format(dataset,

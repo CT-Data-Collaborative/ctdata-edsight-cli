@@ -96,17 +96,19 @@ def main(args=None):
     under certain conditions; type `edsight conditions' for details.
     """
 
+
 @main.command()
-def update_catalog():
+@click.option('--force', '-f', is_flag=True, help="Force update of local catalog file.")
+def update_catalog(force):
     """Check local data catalog index against remote and update if remote has new data."""
     s3_file = _get_remote_catalog_file()
     s3_etag = s3_file.etag.strip("'").strip('"')
 
-    if s3_etag == get_md5(LINKS_PATH):
-        click.echo("Catalog is the latest version.")
-    else:
+    if s3_etag != get_md5(LINKS_PATH) or force:
         _replace_local_catalog(s3_file)
         click.echo("Refreshing the dataset catalog...")
+    else:
+        click.echo("Catalog is the latest version.")
 
 
 @main.command()

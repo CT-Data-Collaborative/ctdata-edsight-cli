@@ -49,6 +49,8 @@ HEADERS = {
 
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
 LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
+BUCKET_NAME = 'edsightcli'
+
 
 def get_md5(filename):
   f = open(filename, 'rb')
@@ -60,22 +62,22 @@ def get_md5(filename):
     m.update(data)
   return m.hexdigest()
 
-def _catalog_update():
-    BUCKET_NAME = 'edsightcli'
+def _get_remote_catalog_file():
     conn = boto.connect_s3()
     bucket = conn.get_bucket(BUCKET_NAME)
-    s3_file = bucket.get_key('datasets.json')
-    s3_etag = s3_file.etag.strip("'").strip('"')
-    if s3_etag == get_md5(LINKS_PATH):
-        click.echo("Catalog is the latest version.")
-    else:
-        import json
-        click.echo("Refreshing the dataset catalog...")
-        links = json.loads(s3_file.get_contents_as_string())
-        if not os.path.isdir(LINKS_DIR):
-            os.makedirs(LINKS_DIR)
-        with open(LINKS_PATH, 'w') as f:
-            json.dump(links, f)
+    return bucket.get_key('datasets.json')
+
+def _replace_local_catalog(s3_catalog_file_object):
+    links = json.loads(s3_catalog_file_object.get_contents_as_string())
+    if not os.path.isdir(LINKS_DIR):
+        os.makedirs(LINKS_DIR)
+    with open(LINKS_PATH, 'w') as f:
+        json.dump(links, f)
+
+def _catalog_update():
+    s3_file = _get_remote_catalog_file()
+    _replace_local_catalog(s3_file)
+
 
 try:
     links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
@@ -95,8 +97,17 @@ def main(args=None):
     """
 
 @main.command()
-def update():
-    _catalog_update()
+def update_catalog():
+    """Check local data catalog index against remote and update if remote has new data."""
+    s3_file = _get_remote_catalog_file()
+    s3_etag = s3_file.etag.strip("'").strip('"')
+
+    if s3_etag == get_md5(LINKS_PATH):
+        click.echo("Catalog is the latest version.")
+    else:
+        _replace_local_catalog(s3_file)
+        click.echo("Refreshing the dataset catalog...")
+
 
 @main.command()
 def warranty():

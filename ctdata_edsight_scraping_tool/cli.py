@@ -50,7 +50,10 @@ HEADERS = {
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
 LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
 
-links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
+try:
+    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
+except FileNotFoundError:
+    update()
 
 def get_md5(filename):
   f = open(filename, 'rb')

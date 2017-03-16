@@ -58,8 +58,8 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         # these for the file naming, which is why we use the xpath lookup to pull out the subset
         f = [p[v] for v in xpaths]
         filename_variables = '_'.join(f)
-        filename = "{}_{}.csv".format(dataset_name, filename_variables)
-        slugged_filename = custom_slugify(filename)
+        filename = "{}_{}".format(dataset_name, filename_variables)
+        slugged_filename = "{}.csv".format(custom_slugify(filename))
         full_output_path = os.path.join(os.path.abspath(output_dir), slugged_filename)
         targets.append({'url': url, 'param': p, 'filename': full_output_path})
     return targets

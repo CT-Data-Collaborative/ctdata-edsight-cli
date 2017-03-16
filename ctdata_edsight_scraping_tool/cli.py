@@ -47,19 +47,10 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
-
-########################################################################################
-#
-# Setup s3 and check etag
-#
-########################################################################################
-
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
 LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
 
-BUCKET_NAME = 'edsightcli'
-conn = boto.connect_s3()
-bucket = conn.get_bucket(BUCKET_NAME)
+links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
 
 def get_md5(filename):
   f = open(filename, 'rb')
@@ -72,25 +63,6 @@ def get_md5(filename):
   return m.hexdigest()
 
 
-# Get the etag from s3
-s3_file = bucket.get_key('datasets.json')
-s3_etag = s3_file.etag.strip("'").strip('"')
-
-# Look for a file named using the etag. If it is missing, it means the catalog has changed and we need to update
-if os.path.isfile(LINKS_PATH) and s3_etag == get_md5(LINKS_PATH):
-    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
-else:
-    import json
-    click.echo("Refreshing the dataset catalog...")
-    links = json.loads(s3_file.get_contents_as_string())
-    if not os.path.isdir(LINKS_DIR):
-        os.makedirs(LINKS_DIR)
-    with open(LINKS_PATH, 'w') as f:
-        json.dump(links, f)
-
-
-
-
 @click.group()
 def main(args=None):
     """Console script for ctdata_edsight_scraping_tool
@@ -100,6 +72,24 @@ def main(args=None):
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `edsight conditions' for details.
     """
+
+@main.command()
+def update():
+    BUCKET_NAME = 'edsightcli'
+    conn = boto.connect_s3()
+    bucket = conn.get_bucket(BUCKET_NAME)
+    s3_file = bucket.get_key('datasets.json')
+    s3_etag = s3_file.etag.strip("'").strip('"')
+    if s3_etag == get_md5(LINKS_PATH):
+        click.echo("Catalog is the latest version.")
+    else:
+        import json
+        click.echo("Refreshing the dataset catalog...")
+        links = json.loads(s3_file.get_contents_as_string())
+        if not os.path.isdir(LINKS_DIR):
+            os.makedirs(LINKS_DIR)
+        with open(LINKS_PATH, 'w') as f:
+            json.dump(links, f)
 
 @main.command()
 def warranty():

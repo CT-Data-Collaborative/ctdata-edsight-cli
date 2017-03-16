@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #     CT SDE EdSight Data Scraping Command Line Interface.
 #     Copyright (C) 2017  Sasha Cuerda, Connecticut Data Collaborative
 #

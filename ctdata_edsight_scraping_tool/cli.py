@@ -50,11 +50,6 @@ HEADERS = {
 LINKS_DIR = os.path.join(os.path.dirname(__file__), 'catalog')
 LINKS_PATH = os.path.join(LINKS_DIR, 'datasets.json')
 
-try:
-    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
-except FileNotFoundError:
-    update()
-
 def get_md5(filename):
   f = open(filename, 'rb')
   m = hashlib.md5()
@@ -65,19 +60,7 @@ def get_md5(filename):
     m.update(data)
   return m.hexdigest()
 
-
-@click.group()
-def main(args=None):
-    """Console script for ctdata_edsight_scraping_tool
-
-    CTData EdSight CLI  Copyright (C) 2017  Connecticut Data Collaborative
-    This program comes with ABSOLUTELY NO WARRANTY; for details type 'edsight warranty'.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; type `edsight conditions' for details.
-    """
-
-@main.command()
-def update():
+def _catalog_update():
     BUCKET_NAME = 'edsightcli'
     conn = boto.connect_s3()
     bucket = conn.get_bucket(BUCKET_NAME)
@@ -93,6 +76,27 @@ def update():
             os.makedirs(LINKS_DIR)
         with open(LINKS_PATH, 'w') as f:
             json.dump(links, f)
+
+try:
+    links = json.loads(resource_string(__name__, 'catalog/datasets.json'))
+except FileNotFoundError:
+    update()
+
+
+
+@click.group()
+def main(args=None):
+    """Console script for ctdata_edsight_scraping_tool
+
+    CTData EdSight CLI  Copyright (C) 2017  Connecticut Data Collaborative
+    This program comes with ABSOLUTELY NO WARRANTY; for details type 'edsight warranty'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `edsight conditions' for details.
+    """
+
+@main.command()
+def update():
+    _catalog_update()
 
 @main.command()
 def warranty():

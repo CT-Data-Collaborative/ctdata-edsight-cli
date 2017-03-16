@@ -14,6 +14,7 @@
 #     You should have received a copy of the GNU General Public License
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+import urllib
 import click
 import requests
 import progressbar
@@ -31,7 +32,11 @@ def fetch_sync(dataset, output_dir, variable, catalog, save=True):
         with progressbar.ProgressBar(max_value=len(targets)) as bar:
             for i, t in enumerate(targets):
                 bar.update(i)
-                click.echo("\n\nFetching: {} {} at {}".format(dataset, t['filename'], t['url']))
+                target_url_query = urllib.parse.urlencode(t['param'])
+
+                click.echo("\n\nDownloading: {}\n{}\nfrom {}{}".format(dataset,
+                                                                     os.path.basename(t['filename']),
+                                                                     t['url'],target_url_query))
                 response = s.get(t['url'], params=t['param'])
                 if save:
                     with open(t['filename'], 'wb') as file:

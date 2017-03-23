@@ -38,7 +38,11 @@ def _build_params_list(dataset, base_qs, variables):
     for i, f in enumerate(filters):
         new_qs = {**base_qs}
         for idx, p in enumerate(param_options):
-            new_qs[p] = f[idx]
+            # We use rstrip here b/c there is a lack of consistency within edsight for how params values
+            # are listed in the dropdown markup and how the export csv wants to receive that param.
+            # An extra space in a param value appears to cause edsight to dump a wider range of data than
+            # is being asked for.
+            new_qs[p] = f[idx].rstrip()
         for k,v in new_qs.items():
             if not isinstance(v, str):
                 new_qs[k] = v[0]

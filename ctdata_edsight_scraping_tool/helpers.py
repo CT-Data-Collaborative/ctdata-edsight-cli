@@ -68,6 +68,19 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         targets.append({'url': url, 'param': p, 'filename': full_output_path})
     return targets
 
+def _add_ct(param_list):
+    ct_list = []
+    for p in param_list:
+        try:
+            if p['_district'] == ' ':
+                new = {**p}
+                new['_district'] = 'State of Connecticut'
+                ct_list.append(new)
+        except KeyError:
+            pass
+    return param_list + ct_list
+
+
 def _setup_download_targets(dataset, output_dir, variable, catalog):
     """Download the csv file of the dataset to a target directory."""
     ds = catalog[dataset]
@@ -84,7 +97,7 @@ def _setup_download_targets(dataset, output_dir, variable, catalog):
 
     # Build up a list params for each variable combo
     params = _build_params_list(ds, qs, variable)
-
+    params = _add_ct(params)
     # Return a list of objects that can be past to our http request
     # generator to build up a final url with params
     return _build_url_list(params, xpaths, new_url, output_dir, dataset)

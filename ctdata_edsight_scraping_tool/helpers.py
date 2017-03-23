@@ -61,6 +61,8 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         # and includes params that are only specific to the SAS stored procedure. We don't need
         # these for the file naming, which is why we use the xpath lookup to pull out the subset
         f = [p[v] for v in xpaths]
+        if p['_district'] == 'State of Connecticut':
+            f.append('ct')
         filename_variables = '_'.join(f)
         filename = "{}__{}".format(dataset_name, filename_variables)
         slugged_filename = "{}.csv".format(custom_slugify(filename))

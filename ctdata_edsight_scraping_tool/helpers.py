@@ -60,7 +60,7 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         # In testing we have a basic param object, but in actual work it is more complex
         # and includes params that are only specific to the SAS stored procedure. We don't need
         # these for the file naming, which is why we use the xpath lookup to pull out the subset
-        f = [p[v] for v in xpaths]
+        f = [p.get(v,'') for v in xpaths]
         if p['_district'] == 'State of Connecticut':
             f.append('ct')
         filename_variables = '_'.join(f)

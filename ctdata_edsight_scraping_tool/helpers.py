@@ -73,13 +73,9 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
 def _add_ct(param_list):
     ct_list = []
     for p in param_list:
-        try:
-            if p['_district'] == ' ':
-                new = {**p}
-                new['_district'] = 'State of Connecticut'
-                ct_list.append(new)
-        except KeyError:
-            pass
+        new = {**p}
+        new['_district'] = 'State of Connecticut'
+        ct_list.append(new)
     return param_list + ct_list
 
 

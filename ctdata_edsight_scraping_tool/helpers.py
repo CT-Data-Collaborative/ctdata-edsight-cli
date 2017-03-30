@@ -75,8 +75,11 @@ def _add_ct(param_list):
     for p in param_list:
         new = {**p}
         new['_district'] = 'State of Connecticut'
-        ct_list.append(new)
-    return param_list + ct_list
+        if '_school' in new:
+            new.__delitem__('_school')
+        if new not in ct_list:
+            ct_list.append(new)
+    return param_list + list(ct_list)
 
 
 def _setup_download_targets(dataset, output_dir, variable, catalog):

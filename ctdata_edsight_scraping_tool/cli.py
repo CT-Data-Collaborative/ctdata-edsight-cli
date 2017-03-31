@@ -184,6 +184,7 @@ def fetch_catalog(async, output_dir):
                 fetcher_sync(d['dataset'], target_dir, g, links, save=True)
 
 
+# TODO Refactor the geography arg to be just a flag for school, since that's all it does anyway
 @main.command()
 @click.option('--async', '-a',
               is_flag=True,

@@ -208,7 +208,7 @@ def fetch(dataset, output_dir, variable, async, mute):
               default='District'
               )
 def fetch_all(dataset, geography, output_dir):
-    fetch_bulk_sync(dataset, geography, output_dir, links, save=True)
+    fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
 
 # @main.command()
 # @click.option('--target', '-t', required=True)

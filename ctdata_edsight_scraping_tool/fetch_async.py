@@ -21,6 +21,8 @@ import aiohttp
 
 from .helpers import _setup_download_targets
 
+sema = asyncio.BoundedSemaphore(5)
+
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {
     'user-agent': ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) '
@@ -32,15 +34,15 @@ HEADERS = {
 # resuse across requests and so that I can add limitation to connection pool
 async def get_report(url, params, file, save):
     print('Getting {} at {}\n'.format(file, url))
-
-    async with aiohttp.ClientSession() as session:
-        async with session.get(BASE_URL, headers=HEADERS) as context:
-            pass
-        async with session.get(url, headers=HEADERS, params=params) as resp:
-            data = await resp.text()
-        if save:
-            async with aiofiles.open(file, 'w') as f:
-                await f.write(data)
+    async with sema:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(BASE_URL, headers=HEADERS) as context:
+                pass
+            async with session.get(url, headers=HEADERS, params=params) as resp:
+                data = await resp.text()
+            if save:
+                async with aiofiles.open(file, 'w') as f:
+                    await f.write(data)
 
 
 

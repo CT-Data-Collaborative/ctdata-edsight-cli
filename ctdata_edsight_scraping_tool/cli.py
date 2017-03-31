@@ -33,13 +33,11 @@ ASYNC_AVAILABLE = False
 # Import sync or async version of fetching routine
 if sys.version_info[0:2] >= (3, 5):
     from .fetch_async import fetch_async as fetcher
-    from .fetch_async import fetch_bulk_async
     from .fetch_sync import fetch_sync as fetcher_sync
     ASYNC_AVAILABLE = True
 else:
     from .fetch_sync import fetch_sync as fetcher
 
-from .fetch_sync import fetch_bulk_sync
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {
@@ -152,45 +150,45 @@ def conditions():
     the conditions stated in the full license.  Sublicensing is not allowed;
     section 10 makes it unnecessary.\n\n
     """)
-
-@main.command()
-@click.option('--async', '-a',
-              is_flag=True,
-              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
-              )
-@click.option('--dataset', '-d',
-              required=True,
-              help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
-@click.option('--output_dir',
-              '-o',
-              required=True,
-              help="Full or relative path for storing downloaded files.",
-              default='./')
-@click.option('--variable',
-              '-v',
-              required=True,
-              multiple=True,
-              help="Variable to fetch. Can be multiple in which case each combination will be fetched")
-@click.option('--mute', '-m',
-              is_flag=True,
-              help="Suppress downloading activity output.")
-def fetch(dataset, output_dir, variable, async, mute):
-    """Download the csv file of the dataset to a target directory.
-
-    On Python versions below 3.5, fetching can take a few minutes or more to complete. This because each dataset is
-    requested in sequence. In Python 3.5 and 3.6, the data requests happen asynchronously which results in significant
-    performance gains.
-    """
-    if not os.path.isdir(output_dir):
-        raise NotADirectoryError("{} not a valid directory".format(output_dir))
-    if async and ASYNC_AVAILABLE:
-        fetcher(dataset, output_dir, variable, links)
-    elif async and not ASYNC_AVAILABLE:
-        click.echo("Sorry, but the async downloader is not available on your platform.")
-        if click.confirm("Do you want to proceed with the default downloader?"):
-            fetcher_sync(dataset, output_dir, variable, links, save=True, mute=mute)
-    else:
-        fetcher_sync(dataset, output_dir, variable, links, save=True)
+#
+# @main.command()
+# @click.option('--async', '-a',
+#               is_flag=True,
+#               help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
+#               )
+# @click.option('--dataset', '-d',
+#               required=True,
+#               help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
+# @click.option('--output_dir',
+#               '-o',
+#               required=True,
+#               help="Full or relative path for storing downloaded files.",
+#               default='./')
+# @click.option('--variable',
+#               '-v',
+#               required=True,
+#               multiple=True,
+#               help="Variable to fetch. Can be multiple in which case each combination will be fetched")
+# @click.option('--mute', '-m',
+#               is_flag=True,
+#               help="Suppress downloading activity output.")
+# def fetch(dataset, output_dir, variable, async, mute):
+#     """Download the csv file of the dataset to a target directory.
+#
+#     On Python versions below 3.5, fetching can take a few minutes or more to complete. This because each dataset is
+#     requested in sequence. In Python 3.5 and 3.6, the data requests happen asynchronously which results in significant
+#     performance gains.
+#     """
+#     if not os.path.isdir(output_dir):
+#         raise NotADirectoryError("{} not a valid directory".format(output_dir))
+#     if async and ASYNC_AVAILABLE:
+#         fetcher(dataset, output_dir, variable, links)
+#     elif async and not ASYNC_AVAILABLE:
+#         click.echo("Sorry, but the async downloader is not available on your platform.")
+#         if click.confirm("Do you want to proceed with the default downloader?"):
+#             fetcher_sync(dataset, output_dir, variable, links, save=True, mute=mute)
+#     else:
+#         fetcher_sync(dataset, output_dir, variable, links, save=True)
 
 
 @main.command()
@@ -212,18 +210,18 @@ def fetch(dataset, output_dir, variable, async, mute):
               help='District or school',
               default='District'
               )
-def fetch_all(dataset, geography, output_dir, async):
+def fetch(dataset, geography, output_dir, async):
     """Download all variable combinations for the given geography of the dataset to a target directory."""
     if not os.path.isdir(output_dir):
         raise NotADirectoryError("{} not a valid directory".format(output_dir))
     if async and ASYNC_AVAILABLE:
-        fetch_bulk_async(dataset, output_dir, geography, links, save=True)
+        fetcher(dataset, output_dir, geography, links, save=True)
     elif async and not ASYNC_AVAILABLE:
         click.echo("Sorry, but the async downloader is not available on your platform.")
         if click.confirm("Do you want to proceed with the default downloader?"):
-            fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
+            fetcher_sync(dataset, output_dir, geography, links, save=True)
     else:
-        fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
+        fetcher_sync(dataset, output_dir, geography, links, save=True)
 
 
 # @main.command()

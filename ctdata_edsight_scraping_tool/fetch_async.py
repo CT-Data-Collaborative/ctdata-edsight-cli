@@ -19,7 +19,7 @@ import asyncio
 import aiofiles
 import aiohttp
 
-from .helpers import _setup_download_targets
+from .helpers import _setup_download_targets, _setup_bulk_targets
 
 sema = asyncio.BoundedSemaphore(5)
 
@@ -49,6 +49,15 @@ async def get_report(url, params, file, save):
 
 def fetch_async(dataset, output_dir, variables, catalog, save=True):
     targets = _setup_download_targets(dataset, output_dir, variables, catalog)
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(
+        asyncio.gather(
+            *(get_report(t['url'], t['param'], t['filename'], save) for t in targets)
+        )
+    )
+
+def fetch_bulk_async(dataset, output_dir, geography, catalog, save=True):
+    targets = _setup_bulk_targets(dataset, output_dir, geography, catalog)
     loop = asyncio.get_event_loop()
     loop.run_until_complete(
         asyncio.gather(

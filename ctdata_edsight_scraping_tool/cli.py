@@ -33,6 +33,7 @@ ASYNC_AVAILABLE = False
 # Import sync or async version of fetching routine
 if sys.version_info[0:2] >= (3, 5):
     from .fetch_async import fetch_async as fetcher
+    from .fetch_async import fetch_bulk_async
     from .fetch_sync import fetch_sync as fetcher_sync
     ASYNC_AVAILABLE = True
 else:
@@ -193,6 +194,10 @@ def fetch(dataset, output_dir, variable, async, mute):
 
 
 @main.command()
+@click.option('--async', '-a',
+              is_flag=True,
+              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
+              )
 @click.option('--dataset', '-d',
               required=True,
               help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
@@ -208,7 +213,18 @@ def fetch(dataset, output_dir, variable, async, mute):
               default='District'
               )
 def fetch_all(dataset, geography, output_dir):
-    fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
+    """Download all variable combinations for the given geography of the dataset to a target directory."""
+    if not os.path.isdir(output_dir):
+        raise NotADirectoryError("{} not a valid directory".format(output_dir))
+    if async and ASYNC_AVAILABLE:
+        fetch_bulk_async(dataset, output_dir, geography, links, save=True)
+    elif async and not ASYNC_AVAILABLE:
+        click.echo("Sorry, but the async downloader is not available on your platform.")
+        if click.confirm("Do you want to proceed with the default downloader?"):
+            fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
+    else:
+        fetch_bulk_sync(dataset, output_dir, geography, links, save=True)
+
 
 # @main.command()
 # @click.option('--target', '-t', required=True)

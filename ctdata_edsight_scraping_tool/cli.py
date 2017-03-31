@@ -26,6 +26,7 @@ import boto
 
 from pkg_resources import resource_string
 
+from .helpers import _build_catalog_geo_list, custom_slugify
 from .links_prep import rebuild
 
 ASYNC_AVAILABLE = False
@@ -150,45 +151,35 @@ def conditions():
     the conditions stated in the full license.  Sublicensing is not allowed;
     section 10 makes it unnecessary.\n\n
     """)
-#
-# @main.command()
-# @click.option('--async', '-a',
-#               is_flag=True,
-#               help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
-#               )
-# @click.option('--dataset', '-d',
-#               required=True,
-#               help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
-# @click.option('--output_dir',
-#               '-o',
-#               required=True,
-#               help="Full or relative path for storing downloaded files.",
-#               default='./')
-# @click.option('--variable',
-#               '-v',
-#               required=True,
-#               multiple=True,
-#               help="Variable to fetch. Can be multiple in which case each combination will be fetched")
-# @click.option('--mute', '-m',
-#               is_flag=True,
-#               help="Suppress downloading activity output.")
-# def fetch(dataset, output_dir, variable, async, mute):
-#     """Download the csv file of the dataset to a target directory.
-#
-#     On Python versions below 3.5, fetching can take a few minutes or more to complete. This because each dataset is
-#     requested in sequence. In Python 3.5 and 3.6, the data requests happen asynchronously which results in significant
-#     performance gains.
-#     """
-#     if not os.path.isdir(output_dir):
-#         raise NotADirectoryError("{} not a valid directory".format(output_dir))
-#     if async and ASYNC_AVAILABLE:
-#         fetcher(dataset, output_dir, variable, links)
-#     elif async and not ASYNC_AVAILABLE:
-#         click.echo("Sorry, but the async downloader is not available on your platform.")
-#         if click.confirm("Do you want to proceed with the default downloader?"):
-#             fetcher_sync(dataset, output_dir, variable, links, save=True, mute=mute)
-#     else:
-#         fetcher_sync(dataset, output_dir, variable, links, save=True)
+
+@main.command()
+@click.option('--async', '-a',
+              is_flag=True,
+              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
+              )
+@click.option('--output_dir',
+              '-o',
+              required=True,
+              help="Full or relative path for storing downloaded files.",
+              default='./')
+def fetch_catalog(async, output_dir):
+    if not os.path.isdir(output_dir):
+        raise NotADirectoryError("{} not a valid directory".format(output_dir))
+    to_get = _build_catalog_geo_list(links)[0:2]
+    for d in to_get:
+        for g in d['geos']:
+            target_dir_name = custom_slugify("{} {}".format(d['dataset'], g))
+            target_dir = os.path.join(output_dir, target_dir_name)
+            if not os.path.exists(target_dir):
+                os.makedirs(target_dir)
+            if async and ASYNC_AVAILABLE:
+                fetcher(d['dataset'], target_dir, g, links, save=True)
+            elif async and not ASYNC_AVAILABLE:
+                click.echo("Sorry, but the async downloader is not available on your platform.")
+                if click.confirm("Do you want to proceed with the default downloader?"):
+                    fetcher_sync(d['dataset'], target_dir, g, links, save=True)
+            else:
+                fetcher_sync(d['dataset'], target_dir, g, links, save=True)
 
 
 @main.command()

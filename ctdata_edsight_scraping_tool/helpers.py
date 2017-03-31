@@ -29,6 +29,15 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
+def _build_catalog_geo_list(catalog):
+    dirs = []
+    for k,v in catalog.items():
+        dirs.append(
+            {
+                'dataset': k,
+                'geos': [g['name'] for g in v['filters'] if g['name'] in ['District', 'School']]
+            })
+    return dirs
 
 
 def _build_params_list(dataset, base_qs, variables):

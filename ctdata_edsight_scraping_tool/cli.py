@@ -98,7 +98,9 @@ def main(args=None):
 
 
 @main.command()
-@click.option('--force', '-f', is_flag=True, help="Force update of local catalog file.")
+@click.option('--force', '-f',
+              is_flag=True,
+              help="Force update of local catalog file.")
 def update_catalog(force):
     """Check local data catalog index against remote and update if remote has new data."""
     s3_file = _get_remote_catalog_file()
@@ -155,17 +157,17 @@ def conditions():
 @main.command()
 @click.option('--async', '-a',
               is_flag=True,
-              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
-              )
-@click.option('--output_dir',
-              '-o',
+              help="""Use the faster, asynchronous download with Python 3.5+. Limited to ten concurrent connections to
+              respect the EdSight servers""")
+@click.option('--output_dir', '-o',
               required=True,
               help="Full or relative path for storing downloaded files.",
               default='./')
 def fetch_catalog(async, output_dir):
+    """Download all datasets. This will take a while even if using the async versions."""
     if not os.path.isdir(output_dir):
         raise NotADirectoryError("{} not a valid directory".format(output_dir))
-    to_get = _build_catalog_geo_list(links)[0:2]
+    to_get = _build_catalog_geo_list(links)
     for d in to_get:
         for g in d['geos']:
             target_dir_name = custom_slugify("{} {}".format(d['dataset'], g))
@@ -185,22 +187,19 @@ def fetch_catalog(async, output_dir):
 @main.command()
 @click.option('--async', '-a',
               is_flag=True,
-              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
-              )
+              help="""Use the faster, asynchronous download with Python 3.5+. Limited to ten concurrent connections to
+                           respect the EdSight servers""")
 @click.option('--dataset', '-d',
               required=True,
               help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
-@click.option('--output_dir',
-              '-o',
+@click.option('--output_dir', '-o',
               required=True,
               help="Full or relative path for storing downloaded files.",
               default='./')
-@click.option('--geography',
-              '-g',
+@click.option('--geography', '-g',
               required=True,
               help='District or school',
-              default='District'
-              )
+              default='District')
 def fetch(dataset, geography, output_dir, async):
     """Download all variable combinations for the given geography of the dataset to a target directory."""
     if not os.path.isdir(output_dir):

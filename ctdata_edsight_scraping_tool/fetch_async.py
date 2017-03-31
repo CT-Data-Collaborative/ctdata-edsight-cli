@@ -22,7 +22,7 @@ import aiohttp
 
 from .helpers import _setup_download_targets
 
-sema = asyncio.BoundedSemaphore(5)
+sema = asyncio.BoundedSemaphore(10)
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {

@@ -212,7 +212,7 @@ def fetch(dataset, output_dir, variable, async, mute):
               help='District or school',
               default='District'
               )
-def fetch_all(dataset, geography, output_dir):
+def fetch_all(dataset, geography, output_dir, async):
     """Download all variable combinations for the given geography of the dataset to a target directory."""
     if not os.path.isdir(output_dir):
         raise NotADirectoryError("{} not a valid directory".format(output_dir))

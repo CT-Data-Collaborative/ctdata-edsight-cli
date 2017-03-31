@@ -38,7 +38,7 @@ if sys.version_info[0:2] >= (3, 5):
 else:
     from .fetch_sync import fetch_sync as fetcher
 
-
+from .fetch_sync import fetch_bulk_sync
 
 BASE_URL = 'http://edsight.ct.gov/SASPortal/main.do'
 HEADERS = {
@@ -155,7 +155,7 @@ def conditions():
 @main.command()
 @click.option('--async', '-a',
               is_flag=True,
-              help="Use the faster, asynchronous download script if on Python 3.5+."
+              help="Use the faster, asynchronous download with Python 3.5+. Respectfully limited to five concurrent connections."
               )
 @click.option('--dataset', '-d',
               required=True,
@@ -190,6 +190,25 @@ def fetch(dataset, output_dir, variable, async, mute):
             fetcher_sync(dataset, output_dir, variable, links, save=True, mute=mute)
     else:
         fetcher_sync(dataset, output_dir, variable, links, save=True)
+
+
+@main.command()
+@click.option('--dataset', '-d',
+              required=True,
+              help="Name of the dataset to retrieve. Should conform to names output by the info cmd.")
+@click.option('--output_dir',
+              '-o',
+              required=True,
+              help="Full or relative path for storing downloaded files.",
+              default='./')
+@click.option('--geography',
+              '-g',
+              required=True,
+              help='District or school',
+              default='District'
+              )
+def fetch_all(dataset, geography, output_dir):
+    fetch_bulk_sync(dataset, geography, output_dir, links, save=True)
 
 # @main.command()
 # @click.option('--target', '-t', required=True)

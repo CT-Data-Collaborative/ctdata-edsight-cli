@@ -102,3 +102,31 @@ def _setup_download_targets(dataset, output_dir, variable, catalog):
     # Return a list of objects that can be past to our http request
     # generator to build up a final url with params
     return _build_url_list(params, xpaths, new_url, output_dir, dataset)
+
+def _setup_bulk_targets(dataset, output_dir, geography, catalog):
+    ds = catalog[dataset]
+    ds_filters = ds['filters']
+    dl_link = ds['download_link']
+
+    if geography == 'District':
+        exclude_vars = ['District', 'School']
+    elif geography == 'School':
+        exclude_vars = ['District']
+
+    variable = [x.get('name') for x in ds_filters if x.get('name') not in exclude_vars]
+
+    # Parse the link url, extract the basic params and then reset the url to its root
+    dl_parsed = urlparse(dl_link)
+    qs = parse_qs(dl_parsed.query)
+    new_url = dl_parsed._replace(query=None).geturl()
+
+    # Call helper function to extract the correct xpaths from our lookup
+    xpaths = _get_xpaths(ds_filters, variable)
+
+    # Build up a list params for each variable combo
+    params = _build_params_list(ds, qs, variable)
+    params = _add_ct(params)
+    # Return a list of objects that can be past to our http request
+    # generator to build up a final url with params
+
+    return _build_url_list(params, xpaths, new_url, output_dir, dataset)

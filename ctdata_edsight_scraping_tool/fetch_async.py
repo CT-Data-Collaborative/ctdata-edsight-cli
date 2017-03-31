@@ -15,6 +15,7 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+import os
 import asyncio
 import aiofiles
 import aiohttp
@@ -38,11 +39,10 @@ async def get_report(url, params, file, save):
             async with session.get(BASE_URL, headers=HEADERS) as context:
                 pass
             async with session.get(url, headers=HEADERS, params=params) as resp:
-                print('Getting {}\n'.format(url))
                 data = await resp.text()
             if save:
                 async with aiofiles.open(file, 'w') as f:
-                    print('Saving {} to {}\n'.format(url, file))
+                    print('Saving {}\n'.format(os.path.basename(file)))
                     await f.write(data)
 
 

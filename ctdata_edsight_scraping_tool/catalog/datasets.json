@@ -8,7 +8,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -258,7 +257,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -500,7 +498,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -745,7 +742,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -990,7 +986,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -1244,7 +1239,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -1468,7 +1462,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -1700,7 +1693,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -1924,7 +1916,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -2148,7 +2139,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2016-17",
                     "2015-16",
                     "2014-15",
@@ -2409,7 +2399,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -2622,7 +2611,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -2834,7 +2822,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2013-14",
                     "2012-13",
                     "2011-12",
@@ -3093,7 +3080,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14"
@@ -3329,7 +3315,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -3861,7 +3846,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2013-14",
                     "2012-13",
                     "2011-12",
@@ -4049,13 +4033,12 @@
     "Four-Year Graduation Rates": {
         "dataset": "Graduation Rates",
         "link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FGraduationReport&_district=All%20Districts&_select=Submit&_parampass=Yes&_year=2013-14&_subgroup=All+Students&_school=",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GraduationExport&_year=2013-14&_district=All+Districts&_subgroup=All+Students&_school=+&_rate=+&_gradcat=+",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/GraduationExport&_year=2014-15&_district=All+Districts&_subgroup=All+Students&_school=+&_rate=+&_gradcat=+",
         "filters": [
             {
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2014-15",
                     "2013-14",
                     "2012-13",
@@ -4230,7 +4213,7 @@
             {
                 "name": "Graduation Category",
                 "xpath_id": "_gradcat",
-                "options": []
+                "options": ["grad", "nongrad"]
             }
         ]
     },
@@ -4243,7 +4226,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2013-14",
                     "2012-13",
                     "2011-12",
@@ -4417,7 +4399,7 @@
             {
                 "name": "Graduation Category",
                 "xpath_id": "_gradcat",
-                "options": []
+                "options": ["grad", "nongrad"]
             }
         ]
     },
@@ -4430,7 +4412,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2012-13",
                     "2011-12",
                     "2010-11"
@@ -4603,7 +4584,7 @@
             {
                 "name": "Graduation Category",
                 "xpath_id": "_gradcat",
-                "options": []
+                "options": ["grad", "nongrad"]
             }
         ]
     },
@@ -4616,7 +4597,6 @@
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
-                    "Trend",
                     "2015-16",
                     "2014-15",
                     "2013-14",
@@ -4851,7 +4831,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": []
+                "options": ["All Grades Combined"]
             }
         ]
     },
@@ -5305,7 +5285,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": []
+                "options": ["All Grades Combined"]
             }
         ]
     },
@@ -5551,7 +5531,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": []
+                "options": ["All Grades Combines"]
             }
         ]
     }

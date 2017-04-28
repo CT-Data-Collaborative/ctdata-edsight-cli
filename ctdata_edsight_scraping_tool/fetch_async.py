@@ -49,12 +49,18 @@ async def get_report(url, params, file, save):
                     target_url = resp.url
                 tries += 1
             if save:
-                if data.find('The query you have run did not contain any results.') == -1 and data.find('<html>') == -1:
+                no_results = data.find('The query you have run did not contain any results.') != -1
+                bad_response = data.find('<html>') != -1
+                if not no_results and not bad_response:
                     async with aiofiles.open(file, 'w') as f:
-                        print('Saving {}\n'.format(os.path.basename(file)))
+                        print('Saving {} on try: {}\n'.format(os.path.basename(file, tries)))
                         await f.write(data)
+                elif no_results:
+                    print("\n{} failed.\nThe query you have run did not contain any results.".format(target_url))
+                elif bad_response:
+                    print("\n{} failed.\bBad response from the EdSight server.".format(target_url))
                 else:
-                    print("{} failed.".format(target_url))
+                    print("\n{} failed.\bSomething unexpected happened.".format(target_url))
 
 
 def fetch_async(dataset, output_dir, geography, catalog, save=True):

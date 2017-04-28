@@ -51,7 +51,9 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
                         continue
                     STATUS_CODE = response.status_code
                 if save and STATUS_CODE == 200:
-                    with open(t['filename'], 'wb') as file:
-                        file.write(response.content)
+                    # Lets check to make sure that the content is an actual CSV files with results
+                    if response.text.find('The query you have run did not contain any results.') == -1:
+                        with open(t['filename'], 'wb') as file:
+                            file.write(response.content)
                 else:
                     click.echo("We had an issue with this dataset. Please try again.")

@@ -2392,8 +2392,8 @@
     },
     "Primary Disability": {
         "dataset": "Primary Disability",
-        "link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=State+of+Connecticut&_subgroup=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_select=Submit",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PrimaryDisabilityExport&_year=2015-16&_district=State+of+Connecticut&_subgroup=+",
+        "link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_subgroup=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FPrimaryDisabilityReport&_select=Submit",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/PrimaryDisabilityExport&_year=2015-16&_district=All+Districts&_subgroup=+",
         "filters": [
             {
                 "name": "Year",
@@ -2605,7 +2605,7 @@
     "Time with Nondisabled Peers": {
         "dataset": "Time with Nondisabled Peers",
         "link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FTimeWithNonDisPeersReport&_year=2015-16&_district=State%20of%20Connecticut&_select=Submit&_subgroup=",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/TimeWithNonDisPeersExport&_year=2015-16&_district=State+of+Connecticut&_subgroup=+",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/TimeWithNonDisPeersExport&_year=2015-16&_district=All+Districts&_subgroup=+",
         "filters": [
             {
                 "name": "Year",
@@ -2816,7 +2816,7 @@
     "Educator Demographics": {
         "dataset": "Educator Demographics",
         "link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FStaffingRaceReport&_default=Yes&_select=Submit",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/StaffingRaceExport&_year=Trend&_district=State+of+Connecticut&_school=+&_subgroup=All",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/StaffingRaceExport&_year=Trend&_district=All+Districts&_school=+&_subgroup=All",
         "filters": [
             {
                 "name": "Year",
@@ -3073,8 +3073,8 @@
     },
     "Educator Qualifications": {
         "dataset": "Educator Qualifications",
-        "link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=State+of+Connecticut&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_select=Submit",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/HQTExport&_year=2015-16&_district=State+of+Connecticut&_school=+",
+        "link": "http://edsight.ct.gov/SASStoredProcess/do?_year=2015-16&_district=All+Districts&_school=&_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FHQTReport&_select=Submit",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/HQTExport&_year=2015-16&_district=All+Districts&_school=+",
         "filters": [
             {
                 "name": "Year",

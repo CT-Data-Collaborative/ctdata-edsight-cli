@@ -40,7 +40,7 @@ async def get_report(url, params, file, save):
                 pass
             async with session.get(url, headers=HEADERS, params=params) as resp:
                 data = await resp.text()
-            if save:
+            if save and data.find('The query you have run did not contain any results.') == -1:
                 async with aiofiles.open(file, 'w') as f:
                     print('Saving {}\n'.format(os.path.basename(file)))
                     await f.write(data)

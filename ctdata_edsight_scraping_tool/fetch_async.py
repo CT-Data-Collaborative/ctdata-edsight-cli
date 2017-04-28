@@ -16,6 +16,7 @@
 #
 
 import os
+import time
 import asyncio
 import aiofiles
 import aiohttp
@@ -31,19 +32,27 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
-# TODO Should move the sesssion context manager one level up so I can
-# resuse across requests and so that I can add limitation to connection pool
 async def get_report(url, params, file, save):
     async with sema:
         async with aiohttp.ClientSession() as session:
             async with session.get(BASE_URL, headers=HEADERS) as context:
                 pass
-            async with session.get(url, headers=HEADERS, params=params) as resp:
-                data = await resp.text()
-            if save and data.find('The query you have run did not contain any results.') == -1:
-                async with aiofiles.open(file, 'w') as f:
-                    print('Saving {}\n'.format(os.path.basename(file)))
-                    await f.write(data)
+            data = '<html>'
+            tries = 0
+            while tries < 4 and data.find('<html>') != -1:
+                if tries > 0:
+                    print("Try #{} for fetching {}".format(tries, params))
+                    time.sleep(.75)
+                async with session.get(url, headers=HEADERS, params=params) as resp:
+                    data = await resp.text()
+                tries += 1
+            if save:
+                if data.find('The query you have run did not contain any results.') == -1 and data.find('<html>') == -1:
+                    async with aiofiles.open(file, 'w') as f:
+                        print('Saving {}\n'.format(os.path.basename(file)))
+                        await f.write(data)
+                else:
+                    print("{} with {} params failed.".format(url, params))
 
 
 def fetch_async(dataset, output_dir, geography, catalog, save=True):

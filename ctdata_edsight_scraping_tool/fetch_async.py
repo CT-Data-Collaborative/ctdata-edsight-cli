@@ -46,7 +46,7 @@ async def get_report(url, params, file, save):
                     time.sleep(.75)
                 async with session.get(url, headers=HEADERS, params=params) as resp:
                     data = await resp.text()
-                    target_url = await resp.url
+                    target_url = resp.url
                 tries += 1
             if save:
                 if data.find('The query you have run did not contain any results.') == -1 and data.find('<html>') == -1:

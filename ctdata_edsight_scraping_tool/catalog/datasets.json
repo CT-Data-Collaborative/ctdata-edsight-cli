@@ -4817,21 +4817,14 @@
                 ]
             },
             {
-                "name": "Race/Ethnicity",
+                "name": "Tests",
                 "xpath_id": "_subgroup",
-                "options": [
-                    " ",
-                    "All Tests - District ",
-                    "Curl Up ",
-                    "Mile Run ",
-                    "Push Up ",
-                    "Sit and Reach "
-                ]
+                "options": [""]
             },
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": ["All Grades Combined"]
+                "options": ["All Grades Combined", "All Grades"]
             }
         ]
     },
@@ -5285,7 +5278,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": ["All Grades Combined"]
+                "options": ["All Grades Combined", "All Grades"]
             }
         ]
     },
@@ -5531,7 +5524,7 @@
             {
                 "name": "Grade",
                 "xpath_id": "_grade",
-                "options": ["All Grades Combines"]
+                "options": ["All Grades Combined", "All Grades"]
             }
         ]
     }

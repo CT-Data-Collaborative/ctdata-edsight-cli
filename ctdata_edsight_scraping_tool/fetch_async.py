@@ -39,12 +39,14 @@ async def get_report(url, params, file, save):
                 pass
             data = '<html>'
             tries = 0
+            target_url = ''
             while tries < 4 and data.find('<html>') != -1:
                 if tries > 0:
-                    print("Try #{} for fetching {}".format(tries, params))
+                    print("Try #{} for fetching {}".format(tries, target_url))
                     time.sleep(.75)
                 async with session.get(url, headers=HEADERS, params=params) as resp:
                     data = await resp.text()
+                    target_url = await resp.url
                 tries += 1
             if save:
                 if data.find('The query you have run did not contain any results.') == -1 and data.find('<html>') == -1:
@@ -52,7 +54,7 @@ async def get_report(url, params, file, save):
                         print('Saving {}\n'.format(os.path.basename(file)))
                         await f.write(data)
                 else:
-                    print("{} with {} params failed.".format(url, params))
+                    print("{} failed.".format(target_url))
 
 
 def fetch_async(dataset, output_dir, geography, catalog, save=True):

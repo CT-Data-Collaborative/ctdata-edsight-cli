@@ -42,7 +42,8 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
 
                 ATTEMPTS = 0
                 STATUS_CODE = 0
-                while ATTEMPTS < 3 and STATUS_CODE != 200:
+                data = '<html>'
+                while ATTEMPTS < 4 and STATUS_CODE != 200 and data.find('<html>') != -1:
                     try:
                         response = s.get(t['url'], params=t['param'])
                     except Exception as e:
@@ -50,10 +51,20 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
                         STATUS_CODE = 0
                         continue
                     STATUS_CODE = response.status_code
+                    data = response.text
+                    target_url = response.url
                 if save and STATUS_CODE == 200:
                     # Lets check to make sure that the content is an actual CSV files with results
-                    if response.text.find('The query you have run did not contain any results.') == -1:
+                    no_results = data.find('The query you have run did not contain any results.') != -1
+                    bad_response = data.find('<html>') != -1
+                    if not no_results and not bad_response:
                         with open(t['filename'], 'wb') as file:
                             file.write(response.content)
+                    elif no_results:
+                        click.echo("\n{} failed.\nThe query you have run did not contain any results.\n".format(target_url))
+                    elif bad_response:
+                        click.echo("\n{} failed.\bBad response from the EdSight server.\n".format(target_url))
+                    else:
+                        click.echo("\n{} failed.\bSomething unexpected happened.".format(target_url))
                 else:
                     click.echo("We had an issue with this dataset. Please try again.")

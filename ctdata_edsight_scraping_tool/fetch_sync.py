@@ -65,7 +65,7 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
                 if not no_results and not bad_response:
                     with open(t['filename'], 'wb') as file:
                         file.write(response.content)
-                        click.echo('Saving {} on try: {}\n'.format(os.path.basename(t['filename']), ATTEMPTS))
+                        click.echo('Saving {} on try: {}\n'.format(os.path.basename(t['filename']), ATTEMPTS+1))
                 elif no_results:
                     click.echo("\n{} failed.\nThe query you have run did not contain any results.\n".format(target_url))
                 elif bad_response:

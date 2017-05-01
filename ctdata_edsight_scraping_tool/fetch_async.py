@@ -54,7 +54,7 @@ async def get_report(url, params, file, save):
                 bad_response = data.find('<html>') != -1
                 if not no_results and not bad_response:
                     async with aiofiles.open(file, 'w') as f:
-                        click.echo('Saving {} on try: {}\n'.format(os.path.basename(file), tries))
+                        click.echo('Saving {} on try: {}\n'.format(os.path.basename(file), tries+1))
                         await f.write(data)
                 elif no_results:
                     click.echo("\n{} failed.\nThe query you have run did not contain any results.\n".format(target_url))

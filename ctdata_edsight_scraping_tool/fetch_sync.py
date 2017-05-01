@@ -19,6 +19,7 @@ import urllib
 import click
 import requests
 import progressbar
+import time
 
 from .helpers import _setup_download_targets
 
@@ -34,8 +35,8 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
         click.echo("Fetching {}\n\n".format(dataset))
         # with progressbar.ProgressBar(max_value=len(targets)) as bar:
         for i, t in enumerate(targets):
-            bar.update(i)
-            target_url_query = urllib.parse.urlencode(t['param']).replace('%2F', '/')
+            # bar.update(i)
+            # target_url_query = urllib.parse.urlencode(t['param']).replace('%2F', '/')
 
             # click.echo("\n\nDownloading: {}\nFrom: {}?{}".format(os.path.basename(t['filename']),
             #                                                         t['url'],target_url_query))
@@ -43,7 +44,11 @@ def fetch_sync(dataset, output_dir, geography, catalog, save=True):
             ATTEMPTS = 0
             STATUS_CODE = 0
             data = '<html>'
+            target_url = ''
             while ATTEMPTS < 4 and STATUS_CODE != 200 and data.find('<html>') != -1:
+                if ATTEMPTS > 0:
+                    click.echo("Try #{} for fetching {}".format(ATTEMPTS, target_url))
+                    time.sleep(.75)
                 try:
                     response = s.get(t['url'], params=t['param'])
                 except Exception as e:

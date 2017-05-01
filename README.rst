@@ -32,6 +32,18 @@ Features
 * Command line tool for exploring CT SDE's EdSight database
 * Option to download all datasets as a batch operation
 
+Installation
+------------
+
+To install, use pip as follows:
+
+:bash:`pip install git+ssh://git@github.com/CT-Data-Collaborative/ctdata-edsight-cli.git#edsight`
+
+or
+
+:bash:`pip install git+ssh://git@github.com/CT-Data-Collaborative/ctdata-edsight-cli.git#edsight`
+
+
 How to use
 ----------
 

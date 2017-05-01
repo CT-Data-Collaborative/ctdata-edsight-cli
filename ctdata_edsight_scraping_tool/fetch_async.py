@@ -56,9 +56,9 @@ async def get_report(url, params, file, save):
                         print('Saving {} on try: {}\n'.format(os.path.basename(file), tries))
                         await f.write(data)
                 elif no_results:
-                    print("\n{} failed.\nThe query you have run did not contain any results.".format(target_url))
+                    print("\n{} failed.\nThe query you have run did not contain any results.\n".format(target_url))
                 elif bad_response:
-                    print("\n{} failed.\bBad response from the EdSight server.".format(target_url))
+                    print("\n{} failed.\bBad response from the EdSight server.\n".format(target_url))
                 else:
                     print("\n{} failed.\bSomething unexpected happened.".format(target_url))
 

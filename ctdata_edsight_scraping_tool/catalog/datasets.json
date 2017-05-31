@@ -3309,12 +3309,13 @@
     "Staffing Levels": {
         "dataset": "Staffing Levels",
         "link": "http://edsight.ct.gov/SASStoredProcess/do?_program=%2FCTDOE%2FEdSight%2FRelease%2FReporting%2FPublic%2FReports%2FStoredProcesses%2FFTEStaffingReport&_select=Submit&_parampass=Yes",
-        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/FTEStaffingExport&_year=2014-15&_district=+&_school=+&_filterby=+&_subgroup=+",
+        "download_link": "http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses/FTEStaffingExport&_year=2015-16&_district=All+Districts&_school=+&_filterby=+&_subgroup=+",
         "filters": [
             {
                 "name": "Year",
                 "xpath_id": "_year",
                 "options": [
+                    "2015-16",
                     "2014-15",
                     "2013-14",
                     "2012-13",

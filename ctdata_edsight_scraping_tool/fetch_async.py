@@ -50,7 +50,7 @@ async def get_report(url, params, file, save):
                     target_url = resp.url
                 tries += 1
             if save:
-                no_results = data.find('The query you have run did not contain any results.') != -1
+                no_results = (data.find('No Search Results') != -1) or (data.find('The query you have run did not contain any results.') != -1)
                 bad_response = data.find('<html>') != -1
                 if not no_results and not bad_response:
                     async with aiofiles.open(file, 'w') as f:

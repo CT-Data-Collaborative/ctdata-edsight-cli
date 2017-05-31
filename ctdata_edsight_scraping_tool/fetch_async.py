@@ -36,15 +36,15 @@ HEADERS = {
 async def get_report(url, params, file, save):
     async with sema:
         async with aiohttp.ClientSession() as session:
-            async with session.get(BASE_URL, headers=HEADERS) as context:
-                pass
             data = '<html>'
             tries = 0
             target_url = ''
             while tries < 4 and data.find('<html>') != -1:
                 if tries > 0:
                     click.echo("Try #{} for fetching {}".format(tries+1, target_url))
-                    time.sleep(1.5)
+                    time.sleep(.75)
+                async with session.get(BASE_URL, headers=HEADERS) as context:
+                    pass
                 async with session.get(url, headers=HEADERS, params=params) as resp:
                     data = await resp.text()
                     target_url = resp.url

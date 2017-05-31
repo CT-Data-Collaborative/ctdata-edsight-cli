@@ -3061,10 +3061,10 @@
                 "xpath_id": "_subgroup",
                 "options": [
                     "All",
-                    "American Indian",
+                    "American Indian or Alaska Native",
                     "Asian",
                     "Black or African American",
-                    "Hispanic",
+                    "Hispanic or Latino",
                     "White",
                     "not reported"
                 ]

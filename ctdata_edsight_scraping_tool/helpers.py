@@ -29,6 +29,56 @@ HEADERS = {
                    'Chrome/45.0.2454.101 Safari/537.36'),
 }
 
+def _state_enrollment_url_list(output_dir):
+    """One off method for dealing with non-standard format of state-level enrollment data"""
+    var_map = {
+        '1': 'grade-by-gender',
+        '2': 'race_ethnicity-by-gender',
+        '3': 'race_ethnicity-by-special-education',
+        '4': 'race_ethnicity-by-ell',
+        '5': 'race_ethnicity-by-free_reduced_lunch'
+    }
+
+    years = [
+        '2007-08', '2008-09', '2009-10', '2010-11', '2011-12',
+        '2012-13', '2013-14', '2014-15', '2015-16', '2016-17'
+    ]
+
+    urls = []
+    for year in years:
+        for key, val in var_map.items():
+            url = f'http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//EnrollmentYearExport&_year={year}&_district=State+of+Connecticut&_school=+&_subgroup=+&display={key}'
+            filename = f'enrollment__{year}_{val}_ct.csv'
+            full_output_path = os.path.join(os.path.abspath(output_dir), filename)
+            urls.append({'url': url, 'param': {}, 'filename': full_output_path})
+
+    trend_subgroups = [
+        'All+Students',
+        'Race',
+        'Gender',
+        'Lunch',
+        'Special+Education',
+        'ELL'
+    ]
+
+    for group in trend_subgroups:
+        url = f'http://edsight.ct.gov/SASStoredProcess/do?_program=/CTDOE/EdSight/Release/Reporting/Public/Reports/StoredProcesses//EnrollmentTrendExport&_year=Trend&_district=State+of+Connecticut&_school=+&_subgroup={group}'
+        filename = f'enrollment__trend_{group.lower().replace("+", "-")}_ct.csv'
+        full_output_path = os.path.join(os.path.abspath(output_dir), filename)
+        urls.append({'url': url, 'param': {}, 'filename': full_output_path})
+
+    return urls
+
+    # [{'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'All Students'},
+    #   'filename': './test_Trend_All-Students.csv'},
+    #  {'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
+    #   'filename': './test_Trend_Race-Ethnicity.csv'},
+    #  {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'All Students'},
+    #   'filename': './test_2015-16_All-Students.csv'},
+    #  {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'Race/Ethnicity'},
+    #   'filename': './test_2015-16_Race-Ethnicity.csv'}]
+
+
 def _build_catalog_geo_list(catalog):
     dirs = []
     for k,v in catalog.items():
@@ -77,6 +127,11 @@ def _build_url_list(params, xpaths, url, output_dir, dataset_name):
         slugged_filename = "{}.csv".format(custom_slugify(filename))
         full_output_path = os.path.join(os.path.abspath(output_dir), slugged_filename)
         targets.append({'url': url, 'param': p, 'filename': full_output_path})
+
+    if dataset_name == 'Enrollment':
+        state_enrollment = _state_enrollment_url_list(output_dir)
+        targets.extend(state_enrollment)
+
     return targets
 
 def _add_ct(param_list):
@@ -92,6 +147,19 @@ def _add_ct(param_list):
 
 
 def _setup_download_targets(dataset, output_dir, geography, catalog):
+    """Prepares a list of dictionaries which contain the components needed to generate a request and save results.
+     
+     Return object looks similar to this:
+     
+     [{'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'All Students'},
+        'filename': './test_Trend_All-Students.csv'},
+       {'url': 'http://edsight.ct.gov/do', 'param': {'_year': 'Trend', '_subgroup': 'Race/Ethnicity'},
+        'filename': './test_Trend_Race-Ethnicity.csv'},
+       {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'All Students'},
+        'filename': './test_2015-16_All-Students.csv'},
+       {'url': 'http://edsight.ct.gov/do', 'param': {'_year': '2015-16', '_subgroup': 'Race/Ethnicity'},
+        'filename': './test_2015-16_Race-Ethnicity.csv'}]
+    """
     ds = catalog[dataset]
     ds_filters = ds['filters']
     dl_link = ds['download_link']
@@ -113,7 +181,8 @@ def _setup_download_targets(dataset, output_dir, geography, catalog):
 
     # Build up a list params for each variable combo
     params = _build_params_list(ds, qs, variable)
-    params = _add_ct(params)
+    if dataset != 'Enrollment':
+        params = _add_ct(params)
     # Return a list of objects that can be past to our http request
     # generator to build up a final url with params
 

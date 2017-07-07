@@ -163,7 +163,10 @@ def conditions():
               required=True,
               help="Full or relative path for storing downloaded files.",
               default='./')
-def fetch_catalog(async, output_dir):
+@click.option('--reprocess', '-r',
+              help="Overwrite existing scrape results in target directory. Defaults to not overwriting.",
+              is_flag=True)
+def fetch_catalog(async, output_dir, reprocess):
     """Download all datasets. This will take a while even if using the async versions."""
     if not os.path.isdir(output_dir):
         raise NotADirectoryError("{} not a valid directory".format(output_dir))
@@ -172,6 +175,8 @@ def fetch_catalog(async, output_dir):
         for g in d['geos']:
             target_dir_name = custom_slugify("{} {}".format(d['dataset'], g))
             target_dir = os.path.join(output_dir, target_dir_name)
+            if not reprocess and os.path.exists(target_dir):
+                continue
             if not os.path.exists(target_dir):
                 os.makedirs(target_dir)
             if async and ASYNC_AVAILABLE:

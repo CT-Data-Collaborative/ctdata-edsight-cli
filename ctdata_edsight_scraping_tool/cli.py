@@ -176,6 +176,7 @@ def fetch_catalog(async, output_dir, reprocess):
             target_dir_name = custom_slugify("{} {}".format(d['dataset'], g))
             target_dir = os.path.join(output_dir, target_dir_name)
             if not reprocess and os.path.exists(target_dir):
+                click.echo(f'{d["dataset"]} already exists. Skipping.')
                 continue
             if not os.path.exists(target_dir):
                 os.makedirs(target_dir)
